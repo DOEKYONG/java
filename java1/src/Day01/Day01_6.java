@@ -12,8 +12,8 @@ public class Day01_6 { // class start
 		System.out.print("날짜: "); String date = scanner1.next();
 		
 		System.out.println("*------------방문록------------|");
-		System.out.println("*|순번|작성자|내용\t     |날짜  |");
-		System.out.println("*|"+num+"  |" +user+"|"+contents+"   |"+date+"|");
+		System.out.println("*|순번|작성자|내용       |날짜  |");
+		System.out.println("*| "+num+" |" +user+"|"+contents+"   |"+date+"|");
 		System.out.println("* ----------------------------|");
 	} // main end
 } // class end
