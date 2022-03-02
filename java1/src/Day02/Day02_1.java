@@ -47,7 +47,7 @@ public class Day02_1 { // class start
 				int result = value +10;
 				// int : +-20억정도의 데이터를 저장할수 있는 상자 
 					// reult[아무거나] : 상자의 이름 
-						// 변수호출(변수불러오기) + 10 666
+						// 변수호출(변수불러오기) + 10 
 						//   10 + 10 
 				System.out.println(result); // 출력함수( 변수명 ) ;
 		
