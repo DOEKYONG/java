@@ -125,10 +125,8 @@ public class Day02_5 { // c s
 			//printf(" x의 값 : %d , y의값 :  %d ", x, y)  23
 //			
 				//문제15 : 나이를 입력받아 나이가 10세이상이면 학생 , 20세이상이면 성인 , 40세이상이면 중년 으로 출력하기
-			System.out.println("나이 입력 : ");  int 나이 = sc.nextInt();
-//			String a = "중년";
-//			String b = "성인";
-//			String c = "학생";
+//			System.out.println("나이 입력 : ");  int 나이 = sc.nextInt();
+			
 //			String 분류 = 나이 >= 40 ? "중년" : 나이 >= 20 ? "성인" : "학생";
 //			System.out.println(분류);
 			
@@ -141,14 +139,43 @@ public class Day02_5 { // c s
 //			}
 			
 			//문제16 : 3개의 정수를 입력받아 오름차순으로 정렬 
+			System.out.println("숫자를입력하세요 : "); int num1 = sc.nextInt();
+			System.out.println("숫자를입력하세요 : "); int num2 = sc.nextInt();
+			System.out.println("숫자를입력하세요 : "); int num3 = sc.nextInt();
+			int max = (num1>num2) && (num1>num3) ? num1 : (num3>num2 ? num3 : num2) ;
+			int mid = (num1>num2) ? ( (num1>num3) ? ( (num2>num3)  ? num2 : num3 ) : num1 ):
+				 ( (num2>num3) ? ( (num1>num3) ? num1 : num3 ) : num2 );
+			int min = (num2>num1) && (num3>num1) ? num1 : (num2>num3 ? num3 : num2);
+			System.out.printf("%d,%d,%d",min,mid,max);
 			
 			
 			
 			
 			
 			//문제17 : 4개의 정수를 입력받아 내림차순으로 정렬 
+			// ????????????????????????????????
+			
+			
 			
 			// p. 102 확인문제
+						// 1. : 3
+						// 2. :  ++10  +  20--   => 11 + 20 -> 31 	
+								// ++10 : 더하기 전에 증가 
+								// 20-- : 더하기 후에 증가 
+						// 3. : 점수>90 ? "가" : "나"
+						//		80>90 -> false -> ! -> true -> 가
+					
+						// 4. (1) : 연필수/학생수 -> 몫		pencils / students
+						//    (2) : 연필수%학생수 -> 나머지	pencils % students
+					
+						// 5. 10의 자리 버리기 
+							// 예) 356 일때 56(나머지) 제거 [ - ]  356 - 56 => 300
+							// value - ( value % 100 )
+						// 6. 윗변 * 밑변 * 높이 / 2 
+							// (lenthTop * lengthBottom) * height / 2
+						// 7
+							// 10 > 7   &&  5<=5    	true && true => 결과 true
+							// 10%3 == 2 || 5%2 != 1 	false || false => 결과 false
 		
 			
 			
