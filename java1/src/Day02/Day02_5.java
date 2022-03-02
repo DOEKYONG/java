@@ -125,10 +125,12 @@ public class Day02_5 { // c s
 			//printf(" x의 값 : %d , y의값 :  %d ", x, y)  23
 //			
 				//문제15 : 나이를 입력받아 나이가 10세이상이면 학생 , 20세이상이면 성인 , 40세이상이면 중년 으로 출력하기
-			//System.out.println("나이 입력 : ");  int 나이 = sc.nextInt();
-			
-			//char 분류 = 나이 >= 40 ? 'a' : 나이 >= 20 ? 'b' : 'c';
-			//System.out.println(분류);
+			System.out.println("나이 입력 : ");  int 나이 = sc.nextInt();
+//			String a = "중년";
+//			String b = "성인";
+//			String c = "학생";
+//			String 분류 = 나이 >= 40 ? "중년" : 나이 >= 20 ? "성인" : "학생";
+//			System.out.println(분류);
 			
 //			if (나이 >= 40) {
 //				System.out.println("중년");
@@ -139,7 +141,8 @@ public class Day02_5 { // c s
 //			}
 			
 			//문제16 : 3개의 정수를 입력받아 오름차순으로 정렬 
-		
+			
+			
 			
 			
 			
