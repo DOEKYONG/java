@@ -77,6 +77,7 @@ public class Day05_4_도서대여 { // c s
 				
 				boolean logincheck = false;
 				for ( int i = 0; i<memberlist.length; i++) {
+					
 					if( memberlist[i][0] !=null && memberlist[i][0].equals( id ) &&
 							memberlist[i][1].equals(password) ) {
 						
@@ -93,10 +94,12 @@ public class Day05_4_도서대여 { // c s
 								for (int j = 0; j<booklist.length; j++) {
 									if(booklist[j][0] != null && 검색 == booklist[j][0]) {
 										// 도서명, 대여여부 출력
-										
-									}
+										System.out.printf("%s, %s \n",booklist[j][0],booklist[1][j]);
+									} //도서명 대여여부 if end
+									else {System.out.println("검색불가"); break;}
 									
 								}
+								
 							}
 							else if( ch2 == 2) {}
 							else if( ch2 == 3) {}
@@ -107,6 +110,12 @@ public class Day05_4_도서대여 { // c s
 					
 						
 					} // 로그인메뉴if end
+					else if (id.equals("admin")) {
+						System.out.println("------------관리자메뉴-----------------");
+						System.out.println("1.도서등록 2.도서목록 3.도서삭제(도전) 4.로그아웃");
+						
+						
+					}
 					else {System.err.println("로그인실패"); break;}
 					
 				} // for end
