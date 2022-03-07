@@ -78,6 +78,11 @@ public class Day05_4_도서대여 { // c s
 				boolean logincheck = false;
 				for ( int i = 0; i<memberlist.length; i++) {
 					
+					if ( logincheck == true) {
+						
+						break;
+					}
+					
 					if( memberlist[i][0] !=null && memberlist[i][0].equals( id ) &&
 							memberlist[i][1].equals(password) ) {
 						
@@ -94,14 +99,25 @@ public class Day05_4_도서대여 { // c s
 								for (int j = 0; j<booklist.length; j++) {
 									if(booklist[j][0] != null && 검색 == booklist[j][0]) {
 										// 도서명, 대여여부 출력
-										System.out.printf("%s, %s \n",booklist[j][0],booklist[1][j]);
+										System.out.printf("%s, %s \n",booklist[j][0],booklist[0][j]);
 									} //도서명 대여여부 if end
 									else {System.out.println("검색불가"); break;}
 									
 								}
 								
 							}
-							else if( ch2 == 2) {}
+							else if( ch2 == 2) {
+								System.out.println("------------도서목록조회--------------");
+								for (int k = 0; k<booklist.length; k++ ) {
+									if (booklist[k][0] != null) {
+										System.out.printf("%s \n",booklist[k][0]);
+										break;
+									} else {
+										System.out.println("도서목록이존재하지않습니다.");
+										break;
+									}
+								}
+							} // else if( ch2 == 2) end
 							else if( ch2 == 3) {}
 							else if( ch2 == 4) {}
 							else if( ch2 == 5) {}
@@ -111,8 +127,44 @@ public class Day05_4_도서대여 { // c s
 						
 					} // 로그인메뉴if end
 					else if (id.equals("admin")) {
+						while(true) {
+							
 						System.out.println("------------관리자메뉴-----------------");
 						System.out.println("1.도서등록 2.도서목록 3.도서삭제(도전) 4.로그아웃");
+						System.out.print("번호를 입력하세요 : "); int chadmin = scanner.nextInt();
+						
+						if(chadmin == 1) {
+							System.out.println("------도서등록페이지-------------");
+							
+							System.out.print("책이름을 입력하세요"); String book = scanner.next();
+							for(int a = 0; a<booklist.length; a++) {
+								if(booklist[a][0] == null) {
+									booklist[a][0] = book;
+									booklist[a][1] = null;
+									booklist[a][2] = id;
+									System.out.println("ok"); break;
+								}
+								
+							}
+						}
+						else if (chadmin == 2) {
+							for( int j =0; j<booklist.length ; j++) {
+								if( booklist[j][0] != null) { // 게시물이 없는 인덱스는 제외
+								System.out.printf("%s\t%s\t%s \n",booklist[j][0],booklist[j][1],booklist[j][2]);
+								}
+							}
+							
+						}
+						else if (chadmin == 3) {}
+						else if (chadmin == 4) {
+						
+							System.out.println("로그아웃"); 
+							logincheck = true;
+							break;
+						}
+						else {}
+						} // while end
+						
 						
 						
 					}
