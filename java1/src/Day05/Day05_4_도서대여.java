@@ -105,8 +105,12 @@ public class Day05_4_도서대여 { // c s
                               bookcheck = true;
                            } //도서명 대여여부 if end
                            //* 질문 else if(bookcheck = false) {System.out.println("없는책"); break;}
+                           // 수업중 해결!! esle 나 else if하면 무조ㅓ건 둘중하나가 실행 그래서 밑에께 나오면 100번반복된거!!
                            
                            
+                        } // for end
+                        if (bookcheck==false) {
+                        	System.out.println("없는책");
                         }
                         
                      }
@@ -126,7 +130,7 @@ public class Day05_4_도서대여 { // c s
                      else if( ch2 == 3) {}
                      else if( ch2 == 4) {}
                      else if( ch2 == 5) {}
-                     else {}
+                     else {System.out.println("잘못된입력");}
                   } // while2 end
                
                   
