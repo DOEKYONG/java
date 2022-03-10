@@ -3,7 +3,7 @@ package Day07;
 import java.util.Scanner;
 
 public class Book {
-	
+	// 책이름 숫자면반납안됨... 
 	// 1. 필드
 	String ISBN;	// ISBN [ 도서번호 = 식별용 ] 
 	String bname;	// 도서명
