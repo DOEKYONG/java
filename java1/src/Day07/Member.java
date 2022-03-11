@@ -1,137 +1,127 @@
 package Day07;
 
-
+import java.util.Scanner;
 
 public class Member {
-	// 1.ÇÊµå
-	int mno;		// È¸¿ø¹øÈ£
-	String id;		// ¾ÆÀÌµğ 
-	String password;// ºñ¹Ğ¹øÈ£
-	String name;	// ÀÌ¸§
-	String phone;	// ¿¬¶ôÃ³
-	// 2.»ı¼ºÀÚ [ »ı¼ºÀÚ¸í == Å¬·¡½º¸í ]
-		// 1. ºó»ı¼ºÀÚ[±âº»»ı¼ºÀÚ]
-		public Member () {}
-		// 2. ¸ğµçÇÊµå¸¦ ¹Ş´Â»ı¼ºÀÚ
-		public Member(int mno, String id, String password, String name, String phone) {
-			this.mno = mno; // È¸¿ø¹øÈ£ [ ÀÚµ¿¹øÈ£ , Áßº¹x ]
-			this.id = id; 	// ¾ÆÀÌµğ [Áßº¹x]
-			this.password = password; // ºñ¹Ğ¹øÈ£
-			this.name = name;	//ÀÌ¸§
-			this.phone = phone;	//¿¬¶ôÃ³
-		}
-		
-		// ÀÓÀÇ 
-	// 3.¸Ş¼Òµå
-		// 1. È¸¿ø°¡ÀÔ ¸Ş¼Òµå [ ÀÎ¼öx ¹İÈ¯o : °¡ÀÔ¼º°øTRUE / °¡ÀÔ½ÇÆĞFALSE]
-	boolean È¸¿ø°¡ÀÔ() {
-		System.out.println(" ----- È¸¿ø°¡ÀÔ ÆäÀÌÁö ------");
-		// 1. ÀÔ·Â¹Ş´Â´Ù [ id pw name phone]
-		System.out.println("¾ÆÀÌµğ : "); String id = Day07_5_BookApplication.scanner.next();
-		// * ¾ÆÀÌµğ Áßº¹Ã¼Å© ***********
-		for (Member temp : Day07_5_BookApplication.members) {
-			if ( temp != null && temp.id.equals(id)) {
-				// ¸¸¾à¿¡ °ø¹éÀÌ ¾Æ´Ï¸é¼­ ¹è¿­³» id¿Í ÀÔ·Â¹ŞÀº id¿Í µ¿ÀÏÇÏ¸é
-				System.out.println("ÇöÀç »ç¿ëÁßÀÎ ¾ÆÀÌµğÀÔ´Ï´Ù.");
-				return false; // ÇÔ¼öÁ¾·á --> ¾ÆÀÌµğ°¡ Áßº¹µÇ¾ú±â¶§¹®¿¡ false[°¡ÀÔ½ÇÆĞ]
-			}
-		}
-		
-		System.out.println("ºñ¹Ğ¹øÈ£ : "); String password = Day07_5_BookApplication.scanner.next();
-		System.out.println("ÀÌ¸§ : "); String name = Day07_5_BookApplication.scanner.next();
-		System.out.println("¿¬¶ôÃ³ : "); String phone = Day07_5_BookApplication.scanner.next();
-				// * scanner °´Ã¼°¡ ´Ù¸¥ Å¬·¡½º³» static ¼±¾ğµÇ¾îÀÖÀ½.
-				// * Å¬·¡½º¸í.ÇÊµå¸í.ÇÔ¼ö¸í();
-				// * static ÇÊµå ¸Ş¼Òµå´Â °´Ã¼¾øÀÌ È£Ãâ°¡´É [ Å¬·¡½º¸í.ÇÊµå¸í/¸Ş¼Òµå¸í ]
-		
-		
-		// * È¸¿ø¹øÈ£ ÀÚµ¿ºÎ¿© [ °¡Àå ÃÖ±Ù¿¡ °¡ÀÔÇÑ È¸¿ø[¸¶Áö¸·È¸¿ø]ÀÇ ¹øÈ£ + 1 ]
-					int bno = 0; // È¸¿ø¹øÈ£ ÀúÀåÇÏ´Â º¯¼ö 
-					int j = 0; // ¹İº¹È½¼ö [ ÀÎµ¦½º ]
-					for( Member temp : Day07_5_BookApplication.members ) {
-						if( temp == null ) { // null Ã£±â [ null Ã£¾ÒÀ»¶§ null-1 ÇÏ¸é ¸¶Áö¸·È¸¿ø ]
-							if( j == 0 ) {   // Ã¹¹øÂ° ÀÎµ¦½º[0¹øÀÎµ¦½º]°¡ null => Ã¹È¸¿ø => Ã¹È¸¿ø¹øÈ£ = 1 ºÎ¿©
-								bno = 1; break; // ³¡³»±â 
-							}
-							else { // Ã¹¹øÂ° È¸¿øÀÌ ¾Æ´Ï¸é 
-								bno = Day07_5_BookApplication.members[ j-1 ].mno + 1 ; // null ¾Õ [ ¸¶Áö¸·È¸¿ø ]¹øÈ£¿¡ +1
-								break; // ³¡³»±â 
-							}
-						}
-						j++; // ÀÎµ¦½º Áõ°¡
-					}
-		
-		
-		// 2. 4°³º¯¼ö - > °´Ã¼È­ -> 1°³
-		Member member = new Member(bno,id,password,name,phone); // ¸ğµç ÇÊµå ¹Ş´Â »ı¼ºÀÚ·Î °´Ã¼»ı¼º
-		// 3. ¹è¿­³» ºó °ø°£À» Ã£¾Æ¼­ »õ·Î¿î È¸¿ø[°´Ã¼] ³Ö±â
-		int i = 0;
-		for ( Member temp : Day07_5_BookApplication.members) {
-			if(temp == null) {
-				Day07_5_BookApplication.members[i] =member; // ºóÀÎµ¦½º¿¡ »õ·Î¿î È¸¿ø´ëÀÔ
-				System.out.println("È¸¿ø¹øÈ£ : " + bno);
-				return true; // È¸¿ø°¡ÀÔ ¸Ş¼Òµå Á¾·á ~~~~~ [¹İÈ¯ : true]
-			}
-			i++;
-		}
-		return false; // È¸¿ø°¡ÀÔ ¸Ş¼Òµå Á¾·á~~~~ [¹İÈ¯ false]
-		// 4. °¡ÀÔ ¼º°ø½Ã true ¹İÈ¯ ½ÇÆĞ½Ã false ¹İÈ¯
+	// 1.í•„ë“œ
+	int mno;		// íšŒì›ë²ˆí˜¸ [ ìë™ë²ˆí˜¸ , ì¤‘ë³µx ] 
+	String id;		// ì•„ì´ë”” [ ì¤‘ë³µx ]
+	String password;// ë¹„ë°€ë²ˆí˜¸
+	String name;	// ì´ë¦„
+	String phone;	// ì—°ë½ì²˜
+	
+	// 2.ìƒì„±ì [ ìƒì„±ìëª… == í´ë˜ìŠ¤ëª… ]
+		// 1. ë¹ˆìƒì„±ì[ê¸°ë³¸ìƒì„±ì] : ë©”ì†Œë“œí˜¸ì¶œìš© ê°ì²´ìƒì„±ì‹œ
+	public Member() { }
+		// 2. ëª¨ë“  í•„ë“œë¥¼ ë°›ëŠ” ìƒì„±ì : íšŒì›ê°€ì…ìš© ê°ì²´ìƒì„±ì‹œ
+	public Member(int mno, String id, String password, String name, String phone) {
+		this.mno = mno;
+		this.id = id;
+		this.password = password;
+		this.name = name;
+		this.phone = phone;
 	}
-		
-
-	// 2. ·Î±×ÀÎ ¸Ş¼Òµå [ ÀÎ¼öx¹İÈ¯o : ]
-			// ·Î±×ÀÎ¼º°ø½Ã ¼º°øÇÑ ¾ÆÀÌµğ¹İÈ¯ / ½ÇÆĞ½Ã NULL ¹İÈ¯
-	String ·Î±×ÀÎ() {
-		System.out.println(" ----- ·Î±×ÀÎ ÆäÀÌÁö ------");
-		System.out.println("¾ÆÀÌµğ : "); String id = Day07_5_BookApplication.scanner.next();
-		System.out.println("ºñ¹Ğ¹øÈ£ : "); String password = Day07_5_BookApplication.scanner.next();
-		// 2. ¹è¿­³» °´Ã¼ id¿Í password°¡ ÀÔ·ÂÇÑ °ª°ú µ¿ÀÏÇÏ¸é
-		for (Member temp : Day07_5_BookApplication.members) {
-			if(temp!= null && temp.id.equals(id) && temp.password.equals(password)) {
-				return temp.id; // ¼º°øÇÑ id ¹İÈ¯
-			}
-		}
-		// 3. ·Î±×ÀÎ ¼º°ø½Ã ÀÔ·ÂÇÑ id¹İÈ¯ // ½ÇÆĞ½Ã null
-		return null;
-		
-	}
-		// 3. ¾ÆÀÌµğÃ£±â ¸Ş¼Òµå [ ÀÎ¼öx¹İÈ¯x]
-	void ¾ÆÀÌµğÃ£±â() {
-		System.out.println(" ----- ¾ÆÀÌµğÃ£±â ÆäÀÌÁö ------");
-		System.out.println("ÀÌ¸§ ÀÔ·Â : ");String name = Day07_5_BookApplication.scanner.next();
-		System.out.println("ÀüÈ­¹øÈ£ ÀÔ·Â : ");String phone = Day07_5_BookApplication.scanner.next();
-		
-		for (Member temp : Day07_5_BookApplication.members ) {
-			if(temp != null && temp.name.equals(name) && temp.phone.equals(phone) ) {
-				System.out.println(" ¾Ë¸²)) ¾ÆÀÌµğ Ã£±â ¼º°ø");
-				System.out.println(" È¸¿ø ID : " +temp.id);
-				return;
+	
+	// 3.ë©”ì†Œë“œ
+		// 1. íšŒì›ê°€ì… ë©”ì†Œë“œ [ ì¸ìˆ˜x ë°˜í™˜o : ê°€ì…ì„±ê³µTRUE / ê°€ì…ì‹¤íŒ¨FALSE]
+	boolean íšŒì›ê°€ì…() {
+		System.out.println(" ----- íšŒì›ê°€ì… í˜ì´ì§€ ------");
+		// 1. ì…ë ¥ë°›ëŠ”ë‹¤ [ id , pw , name, phone ] 
+		System.out.print(" ì•„ì´ë”” : ");	String id = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ë¹„ë°€ë²ˆí˜¸ : ");	String password = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ì´ë¦„ : ");	String name = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ì—°ë½ì²˜ : ");	String phone = Day07_5_BookApplication.scanner.next();
+			// * scanner ê°ì²´ê°€ ë‹¤ë¥¸ í´ë˜ìŠ¤ë‚´ static ì„ ì–¸ë˜ì–´ìˆìŒ. // * í´ë˜ìŠ¤ëª….í•„ë“œëª….í•¨ìˆ˜ëª…()  
+			// * static í•„ë“œ,ë©”ì†Œë“œëŠ” ê°ì²´ì—†ì´ í˜¸ì¶œê°€ëŠ¥ [ í´ë˜ìŠ¤ëª….í•„ë“œëª…/ë©”ì†Œë“œëª… ]
+			// * ì•„ì´ë””ì¤‘ë³µì²´í¬ 
+			for( Member temp : Day07_5_BookApplication.members ) {
+				if( temp != null && temp.id.equals(id)) { // ë§Œì•½ì— ê³µë°±ì´ ì•„ë‹ˆë©´ì„œ ë°°ì—´ë‚´ idì™€ ì…ë ¥ë°›ì€ idì™€ ë™ì¼í•˜ë©´ 
+					System.out.println(" ì•Œë¦¼]] í˜„ì¬ ì‚¬ìš©ì¤‘ì¸ ì•„ì´ë”” ì…ë‹ˆë‹¤. ");
+					return false; // í•¨ìˆ˜ì¢…ë£Œ ---> ì•„ì´ë””ê°€ ì¤‘ë³µë˜ì—ˆê¸° Â‹Âšë¬¸ì— false[ê°€ì…ì‹¤íŒ¨]
+				}
 			} 
-				
-				
-		}
-		System.out.println("Ã£±â½ÇÆĞ ¤Ì¤Ì");
-	}
-		// 4. ºñ¹Ğ¹øÃ£±â ¸Ş¼Òµå [ ÀÎ¼öx¹İÈ¯x ]
-	void ºñ¹Ğ¹øÈ£Ã£±â() {
-		System.out.println(" ----- ºñ¹Ğ¹øÈ£Ã£±â ÆäÀÌÁö ------");
-		System.out.println("¾ÆÀÌµğ ÀÔ·Â : ");String id = Day07_5_BookApplication.scanner.next();
-		System.out.println("ÀüÈ­¹øÈ£ ÀÔ·Â : ");String phone = Day07_5_BookApplication.scanner.next();
-		
-		for (Member temp : Day07_5_BookApplication.members) {
-			
-			if( temp != null && temp.id.equals(id)&& temp.phone.equals(phone) ) {
-				System.out.println(" ¾Ë¸²)) ºñ¹Ğ¹øÈ£ Ã£±â ¼º°ø");
-				System.out.println(" È¸¿ø ºñ¹Ğ¹øÈ£ : " +temp.password);
-				return;
+			// * íšŒì›ë²ˆí˜¸ ìë™ë¶€ì—¬ [ ê°€ì¥ ìµœê·¼ì— ê°€ì…í•œ íšŒì›[ë§ˆì§€ë§‰íšŒì›]ì˜ ë²ˆí˜¸ + 1 ]
+			int bno = 0; // íšŒì›ë²ˆí˜¸ ì €ì¥í•˜ëŠ” ë³€ìˆ˜ 
+			int j = 0; // ë°˜ë³µíšŸìˆ˜ [ ì¸ë±ìŠ¤ ]
+			for( Member temp : Day07_5_BookApplication.members ) {
+				if( temp == null ) { // null ì°¾ê¸° [ null ì°¾ì•˜ì„ë•Œ null-1 í•˜ë©´ ë§ˆì§€ë§‰íšŒì› ]
+					if( j == 0 ) {   // ì²«ë²ˆì§¸ ì¸ë±ìŠ¤[0ë²ˆì¸ë±ìŠ¤]ê°€ null => ì²«íšŒì› => ì²«íšŒì›ë²ˆí˜¸ = 1 ë¶€ì—¬
+						bno = 1; break; // ëë‚´ê¸° 
+					}
+					else { // ì²«ë²ˆì§¸ íšŒì›ì´ ì•„ë‹ˆë©´ 
+						bno = Day07_5_BookApplication.members[ j-1 ].mno + 1 ; // null ì• [ ë§ˆì§€ë§‰íšŒì› ]ë²ˆí˜¸ì— +1
+						break; // ëë‚´ê¸° 
+					}
+				}
+				j++; // ì¸ë±ìŠ¤ ì¦ê°€
 			}
-			
+		// 2. 4ê°œë³€ìˆ˜ -> ê°ì²´í™” -> 1ê°œ
+		Member member = new Member( bno , id, password, name, phone ); // ëª¨ë“  í•„ë“œ ë°›ëŠ” ìƒì„±ìë¡œ ê°ì²´ìƒì„±
+		
+		// 3. ë°°ì—´ë‚´ ë¹ˆ ê³µê°„ì„ ì°¾ì•„ì„œ ìƒˆë¡œìš´ íšŒì›[ê°ì²´] ë„£ê¸° 
+		int i = 0 ; // ë°˜ë³µíšŸìˆ˜ [ ì¸ë±ìŠ¤ì²´í¬ ]
+		for( Member temp : Day07_5_BookApplication.members ) {
+			if( temp == null ) { // ë¹ˆê³µê°„ì´ë©´ 
+				Day07_5_BookApplication.members[i] = member; // ë¹ˆ ì¸ë±ìŠ¤ì— ìƒˆë¡œìš´ íšŒì› ëŒ€ì…
+				System.out.println(" ì•Œë¦¼)) íšŒì›ë‹˜ì˜ íšŒì›ë²ˆí˜¸ : " + bno);
+				return true; // íšŒì›ê°€ì… ë©”ì†Œë“œ ì¢…ë£Œ ~~~~~~~ [ ë°˜í™˜ : true ]
+			}
+			i++; // iì¦ê°€ 
 		}
-		System.out.println("Ã£±â½ÇÆĞ ¤Ì¤Ì");
+		// 4. ê°€ì… ì„±ê³µì‹œ true ë°˜í™˜ ì‹¤íŒ¨ì‹œ false ë°˜í™˜ 
+		return false; // íšŒì›ê°€ì… ë©”ì†Œë“œ ì¢…ë£Œ ~~~~~~ [ ë°˜í™˜ : false ]
 	}
-	
-	
-		// 5. È¸¿øÅ»Åğ ¸Ş¼Òµå 
-		// 6. È¸¿ø¼öÁ¤ ¸Ş¼Òµå 
+	// 2. ë¡œê·¸ì¸ ë©”ì†Œë“œ [ ì¸ìˆ˜xë°˜í™˜o : ]
+			// ë¡œê·¸ì¸ì„±ê³µì‹œ ì„±ê³µí•œ ì•„ì´ë””ë°˜í™˜ / ì‹¤íŒ¨ì‹œ NULL ë°˜í™˜
+	String ë¡œê·¸ì¸() {
+		System.out.println(" ----- ë¡œê·¸ì¸ í˜ì´ì§€ ------");
+		// 1. ì…ë ¥ë°›ê¸° 
+		System.out.print(" ì•„ì´ë”” : ");		String id = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ë¹„ë°€ë²ˆí˜¸ : ");	String password = Day07_5_BookApplication.scanner.next();
+		// 2. ë°°ì—´ë‚´ ê°ì²´ idì™€ passwordê°€ ì…ë ¥í•œ ê°’ê³¼ ë™ì¼í•˜ë©´ 
+		for( Member temp : Day07_5_BookApplication.members ) {
+			if(  temp != null && temp.id.equals(id) 
+					&& temp.password.equals(password) ) {
+				// * ê³µë°±ì´ ì•„ë‹ˆë©´ì„œ idì™€ passwordê°€ ë™ì¼í•˜ë©´ 
+				return temp.id; // ì„±ê³µí•œ id ë°˜í™˜
+			}
+		}
+		// 3. ë¡œê·¸ì¸ ì„±ê³µì‹œ ì…ë ¥í•œ id ë°˜í™˜ / ì‹¤íŒ¨ì‹œ null 
+		return null; // ì‹¤íŒ¨ì‹œ null ë°˜í™˜
+	}
+		// 3. ì•„ì´ë””ì°¾ê¸° ë©”ì†Œë“œ [ ì¸ìˆ˜xë°˜í™˜x] : ì´ë¦„ , ì—°ë½ì²˜ 
+	void ì•„ì´ë””ì°¾ê¸°() {
+		System.out.println(" ----- ì•„ì´ë””ì°¾ê¸° í˜ì´ì§€ ------");
+		// 1.ì…ë ¥ë°›ê¸° 
+		System.out.print(" ì´ë¦„ : "); String name = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ì—°ë½ì²˜ : "); String phone = Day07_5_BookApplication.scanner.next();
+		// 2. ì…ë ¥ë°›ì€ ê°’ì„ ë°°ì—´ì— ì°¾ê¸° 
+		for( Member temp : Day07_5_BookApplication.members ) {
+			if( temp !=null && temp.name.equals(name) && 
+					temp.phone.equals(phone) ) {
+				//* ê³µë°±ì´ ì•„ë‹ˆë©´ì„œ í•´ë‹¹ ê°ì²´ë‚´ name,phone ì´ ì…ë ¥ë°›ì€ ê°’ê³¼ ë™ì¼í•˜ë©´ 
+				System.out.println(" ì•Œë¦¼]] íšŒì›ë‹˜ ì•„ì´ë”” : " + temp.id); // ì°¾ì€ id ì•ˆë‚´
+				return; // ë™ì¼í•œ ê°’ì„ ì°¾ì•˜ìœ¼ë©´ í•´ë‹¹ ë©”ì†Œë“œ ì¢…ë£Œ 
+			}
+		}
+		// 3. ì°¾ì•˜ìœ¼ë©´ ì°¾ì€id ì¶œë ¥í•˜ê³  ëª»ì°¾ì•˜ìœ¼ë©´ ì—†ìŒ ì¶œë ¥ 
+		System.out.println(" ì•Œë¦¼]] ë™ì¼í•œ íšŒì›ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤. ");
+	}
+		// 4. ë¹„ë°€ë²ˆì°¾ê¸° ë©”ì†Œë“œ [ ì¸ìˆ˜xë°˜í™˜x ] : ì•„ì´ë”” , ì—°ë½ì²˜
+	void ë¹„ë°€ë²ˆí˜¸ì°¾ê¸°() {
+		System.out.println(" ----- ë¹„ë°€ë²ˆí˜¸ì°¾ê¸° í˜ì´ì§€ ------");
+		System.out.print(" ì•„ì´ë”” : ");	String id = Day07_5_BookApplication.scanner.next();
+		System.out.print(" ì—°ë½ì²˜ : ");	String phone = Day07_5_BookApplication.scanner.next();
+		for( Member temp : Day07_5_BookApplication.members ) {
+			if( temp != null && temp.id.equals(id) &&
+					temp.phone.equals(phone) ) {
+				System.out.println(" ì•Œë¦¼]] íšŒì›ë‹˜ ë¹„ë°€ë²ˆí˜¸ : " + temp.password );
+				return; // ë™ì¼í•œ ê°’ ì°¾ì•˜ìœ¼ë©´ í•´ë‹¹ ë©”ì†Œë“œ ì¢…ë£Œ 
+			}
+		}
+		System.out.println(" ì•Œë¦¼]] ë™ì¼í•œ íšŒì›ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤. ");
+	}
+		// 5. íšŒì›íƒˆí‡´ ë©”ì†Œë“œ 
+		// 6. íšŒì›ìˆ˜ì • ë©”ì†Œë“œ 
 	
 }

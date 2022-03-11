@@ -65,21 +65,27 @@ public class Book {
 		System.out.println(" ------- 도서반납 페이지 -------");
 		도서대여목록( loginid  );
 		System.out.println(" 도서 ISBN "); String isbn = Day07_5_BookApplication.scanner.next();
+		
+		int i = 0; // 인덱스
 		for( Book temp : Day07_5_BookApplication.books ) {
+			// * 임시 객체 : 배열이름
+				// 배열내 0번인덱스 마지막인덱스 하나씩 임시객체 대입
+			
 			if( temp !=null && temp.ISBN.equals(isbn) ) { // 입력한 isbn이 있으면
 				if( temp.mid.equals(loginid) ) { // 대여인id 과 현재 로그인된id 동일하면 
 					if( temp.brental ) { // 대여중이 아니면 
 						System.out.println(" 알림]] 현재 도서가 대여중이 아닙니다. ");
 					}else { // 대여중이면 
 						System.out.println(" 알림]] 반납 완료 !!!! ");
-						temp.brental = true; // 대여중 -> 대여가능 변경 
-						temp.mid = null; // 대여한 사람의 id를 다시 없음변경 [ null ]
+						Day07_5_BookApplication.books[i].brental = true; // 대여중 -> 대여가능 변경 
+						Day07_5_BookApplication.books[i].mid = null; // 대여한 사람의 id를 다시 없음변경 [ null ]
 						return;
 					}
 				}else {
 					System.out.println(" 알림]] 회원님이 대여한 도서가 아닙니다.");
 				}
 			}
+			i++;
 		}
 		System.out.println(" 알림]] 동일한 도서ISBN이 없습니다. ");
 	}
