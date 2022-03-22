@@ -1,5 +1,8 @@
 package 평가2;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+
 public class Parking {
 	
 	// 필드
@@ -13,6 +16,7 @@ public class Parking {
 	public Parking() {}
 
 	public Parking(String date, String carNum, String carIntime, String carOuttime, String payMoney) {
+		super();
 		Date = date;
 		this.carNum = carNum;
 		this.carIntime = carIntime;
@@ -20,7 +24,15 @@ public class Parking {
 		this.payMoney = payMoney;
 	}
 	
-// getter setter
+	
+
+	public Parking(String date, String carNum, String carIntime) {
+		super();
+		Date = date;
+		this.carNum = carNum;
+		this.carIntime = carIntime;
+	}
+
 	public String getDate() {
 		return Date;
 	}
@@ -60,9 +72,10 @@ public class Parking {
 	public void setPayMoney(String payMoney) {
 		this.payMoney = payMoney;
 	}
+
 	
+
 	
-	// 풀생성자 
 	
 
 }

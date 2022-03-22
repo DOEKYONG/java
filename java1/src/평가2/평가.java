@@ -1,6 +1,8 @@
 package 평가2;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Scanner;
 
@@ -34,30 +36,64 @@ public class 평가 {
 			System.out.println("--------------------- 주차 현황 표 ---------------------");
 			Date date = new Date();
 			 SimpleDateFormat sdf 
-				= new SimpleDateFormat("\t  \t    yyyy-MM-dd-hh:mm ");
+				= new SimpleDateFormat("\t\tyyyy-MM-dd  hh:mm ");
 			 System.out.println(sdf.format(date));
+			 
+			
+			
+//			Date date = new Date();
+//			 SimpleDateFormat sdf 
+//				= new SimpleDateFormat("yyyy-MM-dd hh:mm");
+//			 //System.out.println(sdf.format(date));
+//			 Date date1 = new Date();
+//			 SimpleDateFormat sdf1 = 
+//					 new SimpleDateFormat("hh:mm");
+//			 String Date1 = sdf.format(date) +" "+ sdf1.format(date1);
+//			 System.out.println("\t\t  "+Date1);
+			// LocalDate localDate = LocalDate.now();
+			
 			 System.out.println();
 			 System.out.println("\t날짜\t차량번호\t입차시간\t출차시간\t금액");
-			 String sst = sdf.format(date);
+			// String sst = sdf.format(date);
 			System.out.println("-----------------------------------------------------");
 			
 			int i =0;
 			for(Parking temp :Controller.carlist) {
 				if ( temp != null) {
-					System.out.println("\t" + Controller.carlist.get(i).getDate()+"\t" + Controller.carlist.get(i).getCarNum());
+					System.out.println( Controller.carlist.get(i).getDate()+"\t" + Controller.carlist.get(i).getCarNum()+"\t"+Controller.carlist.get(i).getCarIntime()+"\t"+Controller.carlist.get(i).getCarOuttime()+"\t"+Controller.carlist.get(i).getPayMoney()
+							);
 				}
+				i++;
 				
 			}
 			System.out.println("\t\t\t1.입차\t2.출차\t\t\t"); int ch = scanner.nextInt();
 			
 			if(ch ==1 ) {
-				String payMoney = "정산전";
-				String carIntime = null;
-				String carOuttime = null;
+//				String payMoney = "정산전";
+//				String carIntime = null;
+//				String carOuttime = null;
 				System.out.println(" 차량번호를 입력하세요 : "); String carNum = scanner.next();
-				Controller.incar(sst, carNum, carIntime, carOuttime, payMoney);
+				//Controller.incar(carNum);
+				boolean sw = true;
+				for ( int j= 0 ; j < Controller.carlist.size(); j++ ) {
+		
+					if (Controller.carlist.get(j).getCarNum().equals(carNum)) {
+						System.out.println("차량등록실패 )) 중복된차량번호");
+						sw = false;
+						break;
+					}
+				}
+				if(sw==true)Controller.incar(carNum);
+				
+				
+				
+				
+				
 			}
-			else if( ch == 2) {}
+			else if( ch == 2) {
+				System.out.println(" 출차할 차량번호를 입력하세요 : "); String carNum = scanner.next();
+				Controller.outcar(carNum);
+			}
 			else {System.out.println("잘못된입력입니다.");}
 			
 			
