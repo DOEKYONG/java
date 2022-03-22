@@ -44,16 +44,8 @@ public static void outcar(String carNum) {
 		 SimpleDateFormat sdf0 =  
 				 new SimpleDateFormat("HH:mm");
 		 String carIntimes = sdf0.format(carIntime);
-		
-		
-		if(carlist.get(i).getCarNum().equals(carNum)) {
-			
-			carlist.get(i).setCarOuttime(carOuttimes);
-			System.out.println("출차성공!!");
-			
-			
-			
-			String[] intime = carIntimes.split(":");
+		 
+		 String[] intime = carIntimes.split(":");
 			String[] outtime = carOuttimes.split(":");
 			
 			int intime_h = Integer.parseInt(intime[0]);
@@ -69,13 +61,6 @@ public static void outcar(String carNum) {
 			int intvalue = (total_time -30)/10*1000;
 			payMoney=  Integer.toString(intvalue);
 			
-			if(total_time < 30 ) {
-				carlist.get(i).setPayMoney("0");
-			}
-			else {
-				carlist.get(i).setPayMoney(payMoney);
-			}	
-			
 			// string->int 형변환 예제
 //			public class IntToString {
 //				public static void main(String[] args) {
@@ -89,6 +74,22 @@ public static void outcar(String carNum) {
 //				}
 //
 //				출처: https://hianna.tistory.com/524 [어제 오늘 내일]
+		
+		
+		if(carlist.get(i).getCarNum().equals(carNum)) {
+			
+			carlist.get(i).setCarOuttime(carOuttimes);
+			System.out.println("출차성공!!");
+			
+			
+			if(total_time < 30 ) {
+				carlist.get(i).setPayMoney("0");
+			}
+			else {
+				carlist.get(i).setPayMoney(payMoney);
+			}	
+			
+
 			
 			
 		}

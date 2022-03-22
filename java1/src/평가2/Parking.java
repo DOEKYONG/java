@@ -26,12 +26,6 @@ public class Parking {
 	
 	
 
-	public Parking(String date, String carNum, String carIntime) {
-		super();
-		Date = date;
-		this.carNum = carNum;
-		this.carIntime = carIntime;
-	}
 
 	public String getDate() {
 		return Date;
