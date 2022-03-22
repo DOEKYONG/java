@@ -7,24 +7,9 @@ import java.util.Date;
 public class Controller {
 	
 	 static ArrayList<Parking> carlist = new ArrayList<>();
-	
-//public static	 Date carIntime = new Date();
-//	 SimpleDateFormat sdf0 =  
-//			 new SimpleDateFormat("hh:mm");
-	 
-public static	 Date carIntime = new Date();	 
-	static SimpleDateFormat sdf0 =  
-			 new SimpleDateFormat("hh:mm");
-static	String carIntimes = sdf0.format(carIntime);
-	 
-	 
-public static	 Date carOuttime = new Date();
-	 static SimpleDateFormat sdf1 =  
-			 new SimpleDateFormat("hh:mm");
-	 static String carOuttimes = sdf1.format(carOuttime);
 	 
 static	 String payMoney ;
-	// public static String payMoney =null; 
+
 	 
 	
 	// 입차메소드
@@ -35,25 +20,39 @@ public static void  incar(String carNum) {
 		= new SimpleDateFormat("yyyy-MM-dd");
 	 String dates = sdf.format(date);
 	 
-//	 Date carIntime = new Date();	 
-//	 SimpleDateFormat sdf0 =  
-//			 new SimpleDateFormat("hh:mm");
-//	String carIntimes = sdf0.format(carIntime);
-	
+	 	 Date carIntime = new Date();	 
+		 SimpleDateFormat sdf0 =  
+				 new SimpleDateFormat("HH:mm");
+		 String carIntimes = sdf0.format(carIntime);	
 	Parking savecar = new Parking(dates,carNum,carIntimes,"주차중","정산전");
 	carlist.add(savecar);
-	
-	
-
 }
 	
 	// 출차메소드
 public static void outcar(String carNum) {
 	// 4. 계산 [ 출차시간 - 입차시간 => (분-30)/10 *1000  ]
 				// 5. (수정)찾은 객체내 출시간과 금액을 대입한다.
+	
 	for (int i = 0; i<carlist.size(); i++) {
+		
+			 Date carOuttime = new Date();
+		  SimpleDateFormat sdf1 =  
+				 new SimpleDateFormat("HH:mm");
+		 String carOuttimes = sdf1.format(carOuttime);
+		 
+		 Date carIntime = new Date();	 
+		 SimpleDateFormat sdf0 =  
+				 new SimpleDateFormat("HH:mm");
+		 String carIntimes = sdf0.format(carIntime);
+		
+		
 		if(carlist.get(i).getCarNum().equals(carNum)) {
+			
 			carlist.get(i).setCarOuttime(carOuttimes);
+			System.out.println("출차성공!!");
+			
+			
+			
 			String[] intime = carIntimes.split(":");
 			String[] outtime = carOuttimes.split(":");
 			
@@ -70,18 +69,14 @@ public static void outcar(String carNum) {
 			int intvalue = (total_time -30)/10*1000;
 			payMoney=  Integer.toString(intvalue);
 			
-			if(total_time >= 30 ) {
-				carlist.get(i).setPayMoney(payMoney);
+			if(total_time < 30 ) {
+				carlist.get(i).setPayMoney("0");
 			}
 			else {
 				carlist.get(i).setPayMoney(payMoney);
-			}
+			}	
 			
-			
-			
-			
-			
-			
+			// string->int 형변환 예제
 //			public class IntToString {
 //				public static void main(String[] args) {
 //				int intValue1 = 123;
@@ -97,16 +92,11 @@ public static void outcar(String carNum) {
 			
 			
 		}
-		else {System.out.println("입차한 차량이 아닙니다.");}
-	}
-	
-	
-	
+		else {System.out.println("없는번호"); }
+		
+		
+		
+	}	
 	
 }
-
-
-	
-
-
 }
