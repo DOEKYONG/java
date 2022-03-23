@@ -27,8 +27,9 @@ public static void incar(String carNum) {
 	
 	//출차메소드
 public static void outcar(String carNum) {
-	boolean sw = true;
+	
 	for(int i=0; i<carlist.size(); i++) {
+		
 		Date carIntime = new Date();
 		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		String carIntimes = sdf.format(carIntime);
@@ -42,42 +43,51 @@ public static void outcar(String carNum) {
 		
 		int intime_h = Integer.parseInt(intime[0]);
 		int intime_m = Integer.parseInt(intime[1]);
-		int intime_all = (intime_h*60)+intime_h;
+		int intime_all = (intime_h*60)+intime_m;
 		
 		int outtime_h = Integer.parseInt(outtime[0]);
 		int outtime_m = Integer.parseInt(outtime[1]);
-		int outtime_all = (outtime_h*60)+outtime_h;
+		int outtime_all = (outtime_h*60)+outtime_m;
 		
 		int total_time = outtime_all-intime_all;
 		
 		int invalue = (total_time -30 ) / 20 *1000;
 		 payMoney = Integer.toString(invalue);
+		 
+		 if(total_time<30) {
+				carlist.get(i).setPayMoney("0");
+			}
+			else {
+				carlist.get(i).setPayMoney(payMoney);
+			}
 		
 		
 		
 		
-		if(sw==true&&carlist.get(i).getCarNum().equals(carNum)) {
+		if(carlist.get(i).getCarNum().equals(carNum)) {
 		carlist.get(i).setCarOuttime(carOuttimes);
 		System.out.println("출차성공!!!");
 		
-		if(total_time<30) {
-			carlist.get(i).setPayMoney("0");
-		}
-		else {
-			carlist.get(i).setPayMoney(payMoney);
-		}
-		sw = false;
-		break;
+		
+		
+//		if(total_time<30) {
+//			carlist.get(i).setPayMoney("0");
+//		}
+//		else {
+//			carlist.get(i).setPayMoney(payMoney);
+//		}
+		
+	
 		
 		
 		}
 		//else {System.out.println("없는번");}
 		
 		
-	}
+	} }
 	
-	if(sw==false) {System.out.println("이미있는차량");}
+
 	
 }
 
-}
+
