@@ -34,4 +34,3 @@ public class Day15_4 {
 	}
 
 }
-
