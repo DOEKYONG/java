@@ -1,6 +1,7 @@
 # java# 영화관 3조
 ## 오늘 상영중인 영화 | 영화 시작시간 |  상영관
 ---
+# 회원가입,로그인 메뉴
 1. 회원가입
 2. 로그인
 3. 아이디찾기
@@ -20,3 +21,8 @@ p* rivate boolean check
 * public void findid() {}
 * public void findpw() {}
 * public void changepw() {}
+
+# 일반회원 메뉴
+---
+1. 예매
+2. 예매내역
