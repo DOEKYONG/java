@@ -10,11 +10,13 @@
 ## 회원가입,로그인 필드,메소드
 ---
 필드
+***
 * private String id
 * private String pw
 * private String phone
 * rivate boolean check
-메소드 
+메소드
+***
 * public void sign() {}
 * public void login() {}
 * public void findid() {}
