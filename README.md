@@ -15,6 +15,7 @@
 * private String pw
 * private String phone
 * rivate boolean check
+***
 메소드
 ***
 * public void sign() {}
