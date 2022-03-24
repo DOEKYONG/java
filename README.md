@@ -7,7 +7,7 @@
 3. 아이디찾기
 4. 비밀번호찾기
 
-## 회원가입,로그인 필드,메소드
+## 회원가입,로그인  클래스 Member 필드,메소드
 ---
 필드
 ***
@@ -39,7 +39,7 @@
 3. 회원정보 보기 
     1. 비밀번호 변경
 
-## 일반회원 메뉴 필드,메소드
+## 일반회원 메뉴 클래스 ???? 필드,메소드
 ---
 필드
 ***
@@ -64,5 +64,24 @@
       1. 영화제목 입력
       2. 영화시간 입력
 3. 매출확인 
+
+## 관리자메뉴 클래스 Movie 필드,메소드
+---
+필드
+***
+* private String title
+* private String intime
+* private String outtime
+* private int Money
+***
+메소드
+***
+* public void movie_register
+* public void movie_remove
+* public void sale
+
+# 파일저장 클래스 DB
+---
+...
    
    
