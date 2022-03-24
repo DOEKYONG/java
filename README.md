@@ -8,15 +8,15 @@
 
 ## 회원가입,로그인 필드
 ---
-private String id
-private String pw
-private String phone
-private boolean check
+* private String id
+* private String pw
+* private String phone
+p* rivate boolean check
 
 ## 회원가입,로그인 메소드
 ---
-public void sign() {}
-public void login() {}
-public void findid() {}
-public void findpw() {}
-public void changepw() {}
+* public void sign() {}
+* public void login() {}
+* public void findid() {}
+* public void findpw() {}
+* public void changepw() {}
