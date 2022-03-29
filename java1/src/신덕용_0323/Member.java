@@ -8,6 +8,7 @@ public class Member {
 	private String phone;
 	private boolean check;
 	
+	
 	public Member() {
 		// TODO Auto-generated constructor stub
 	}
