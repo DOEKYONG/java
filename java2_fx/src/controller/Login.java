@@ -14,6 +14,16 @@ import javafx.scene.media.MediaView;
 
 public class Login implements Initializable {
 	
+	
+	// * 해당 클래스의 메모리를 반환하는 방법
+		// 1. 현재 클래스로 객체선언
+	public static Login instansce;
+	// * 2 .생성자에서 객체내 this 넣어주기
+			// this : 현재클래스의 메모리  [ 새로운메모리할당x] 
+	public Login() {
+		instansce = this;
+	}
+	
 
     @FXML
     private MediaView mediaview;
