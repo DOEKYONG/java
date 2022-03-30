@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -39,13 +39,13 @@ public class Loginpane implements Initializable {
     void accfindid(ActionEvent event) {
     	System.out.println("아이디찾기");
     	
-    	Login.instansce.loadpage("/view/findidpane.fxml");
+    	Login.instansce.loadpage("/view/login/findidpane.fxml");
     }
 
     @FXML
     void accfindpassword(ActionEvent event) {
     	System.out.println("비밀번호찾기");
-   	Login.instansce.loadpage("/view/findpasswordpane.fxml");
+   	Login.instansce.loadpage("/view/login/findpasswordpane.fxml");
     }
 
     @FXML
@@ -58,7 +58,7 @@ public class Loginpane implements Initializable {
     	//-----------------------------위 안됨 -----------------------------------------------------
     	// * 회원가입 버튼을 누르면 login컨트롤클래스 내 borderpane 컨테이너 center 페이지 변경
     	// 문제 : 다른 클래스내 컨테이너 호출
-    	Login.instansce.loadpage("/view/signuppane.fxml");
+    	Login.instansce.loadpage("/view/login/signuppane.fxml");
     	
     	
     }

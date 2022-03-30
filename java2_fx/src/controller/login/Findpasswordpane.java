@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -32,7 +32,7 @@ private TextField txtid;
 @FXML
 void back(ActionEvent event) {
 	System.out.println("뒤로가기 버튼 눌렀음");
-	Login.instansce.loadpage("/view/loginpane.fxml");
+	Login.instansce.loadpage("/view/login/loginpane.fxml");
 }
 
 @FXML

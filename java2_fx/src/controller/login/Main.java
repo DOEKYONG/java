@@ -1,4 +1,4 @@
-package controller;
+package controller.login;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -20,7 +20,7 @@ public class Main implements Initializable {
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		System.out.println("메인뷰가 실행되었습니다.");
 		// 1.
-		loadpage("/view/login");  // loadpage 메소드 호출시 ( 파일경로 )
+		loadpage("/view/login/login");  // loadpage 메소드 호출시 ( 파일경로 )
 	}
 	
 	public void loadpage(String page) { // loadpage( 파일경로 )
