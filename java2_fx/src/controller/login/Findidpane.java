@@ -3,6 +3,7 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -35,6 +36,8 @@ public class Findidpane implements Initializable {
 
     @FXML
     void findid(ActionEvent event) {
+    	
+    	String result = MemberDao.memberDao.findid(email);
 
     }
 
