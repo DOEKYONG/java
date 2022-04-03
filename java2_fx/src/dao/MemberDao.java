@@ -90,17 +90,35 @@ public class MemberDao { // DB 접근객체
 			String sql = "select * from member where memail = ?";
 			PreparedStatement ps = con.prepareStatement(sql);
 			ps.setString(1, email);
-			ResultSet rs = ps.executeQuery(); // 결과물[한줄씩=레코드] 가져오기
+			rs = ps.executeQuery(); // 결과물[한줄씩=레코드] 가져오기
 			if(rs.next()) {
 				return rs.getString(2);
 			}
 			
 			
-		} catch(Exception e) {}
+		} catch(Exception e) {System.out.println();}
 		return null;
 		}
 		// 4. 비밀번호찾기 메소드 ( 인수 : 비밀번호찾기 시 필요한 아이디, 이메일 )
-	public String findpassword( String id , String email ) { return null;}
+	public String findpassword( String id , String email ) {
+		try {
+			////sql 작성
+			String sql = "select * from member where mid=? and  memail=? ";
+			////sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setString(1, id);
+			ps.setString(2, email);
+			
+			////sql 실행
+			rs = ps.executeQuery();
+			/// sql 결과
+			if(rs.next()) {
+				return rs.getString(3);
+				
+				}
+			}
+			catch(Exception e) {System.out.println("sql 오류" + e);}
+			return null;}
 	
 	
 

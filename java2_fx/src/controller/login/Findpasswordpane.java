@@ -3,6 +3,7 @@ package controller.login;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -37,6 +38,20 @@ void back(ActionEvent event) {
 
 @FXML
 void findpassword(ActionEvent event) {
+	String id = txtid.getText();
+	String email = txtemail.getText();
+	
+	String result = MemberDao.memberDao.findpassword( id, email);
+	
+	if(result==null) {
+		lblconfirm.setText("동일한 회원정보가 없습니다.");
+		
+		///
+	}
+	else {////페이지 전환[다음주]
+		//테스트
+		lblconfirm.setText("회원님의 비밀번호는" + result + "입니다." );
+		}
 
 }
 

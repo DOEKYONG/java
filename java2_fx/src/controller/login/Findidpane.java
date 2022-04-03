@@ -36,8 +36,17 @@ public class Findidpane implements Initializable {
 
     @FXML
     void findid(ActionEvent event) {
+    	String email = txtemail.getText();
     	
     	String result = MemberDao.memberDao.findid(email);
+    	if(result == null) {
+    		// 페이지 전환 [ 다음주 ]
+    		// * 테스트
+    		lblconfirm.setText("존재하지 않는 아이디 입니다.");
+    	}
+    	else {
+    		lblconfirm.setText("회원님의 아이디는" + result + "입니다." );
+    	}
 
     }
 
