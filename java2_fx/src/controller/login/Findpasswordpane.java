@@ -4,12 +4,15 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import dao.MemberDao;
+import dto.Member;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 
 public class Findpasswordpane implements Initializable{
 
@@ -44,13 +47,23 @@ void findpassword(ActionEvent event) {
 	String result = MemberDao.memberDao.findpassword( id, email);
 	
 	if(result==null) {
-		lblconfirm.setText("동일한 회원정보가 없습니다.");
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setHeaderText("일치하는 회원정보가 없습니다.");
+		//lblconfirm.setText("동일한 회원정보가 없습니다.");
+		alert.showAndWait();
 		
 		///
 	}
 	else {////페이지 전환[다음주]
 		//테스트
-		lblconfirm.setText("회원님의 비밀번호는" + result + "입니다." );
+		// 이메일 전송 메소드 호출
+		Member.sendmail(email, result);
+		
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setHeaderText("해당 이메일로 비밀번호를 전송했습니다.");
+		//lblconfirm.setText("회원님의 비밀번호는" + result + "입니다." );
+		alert.showAndWait();
 		}
 
 }

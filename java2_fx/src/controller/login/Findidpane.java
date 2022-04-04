@@ -7,6 +7,8 @@ import dao.MemberDao;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -42,10 +44,16 @@ public class Findidpane implements Initializable {
     	if(result == null) {
     		// 페이지 전환 [ 다음주 ]
     		// * 테스트
-    		lblconfirm.setText("존재하지 않는 아이디 입니다.");
+    		
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setHeaderText("일치하는 회원정보가 없습니다.");
+    		alert.showAndWait();
     	}
     	else {
-    		lblconfirm.setText("회원님의 아이디는" + result + "입니다." );
+    		Alert alert = new Alert(AlertType.INFORMATION);
+    		alert.setHeaderText("회원님의 아이디는" + result + "입니다.");
+    		alert.showAndWait();
+    		//lblconfirm.setText("회원님의 아이디는" + result + "입니다." );
     	}
 
     }
