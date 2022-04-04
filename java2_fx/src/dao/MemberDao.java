@@ -73,6 +73,7 @@ public class MemberDao { // DB 접근객체
 		ps.setString(2, password);
 		rs = ps.executeQuery();
 		if( rs.next()) {
+			
 			return true;
 		} 
 		}catch(Exception e) {
@@ -154,9 +155,53 @@ public class MemberDao { // DB 접근객체
 		
 	}
 	
-	// 6. 회원탈퇴
+	// 6. 회원탈퇴 [ 회원번호를 인수로 받아 해당 회원번호의 레코드 삭제 ]
+	public boolean delete( int mnum) {
+		
+		try {
+			// 1. sql 작성
+			String sql = "delete  from member where mnum =? ";
+			// 2. sql 조작
+			ps = con.prepareStatement(sql);
+			ps.setInt(1, mnum);
+			// 3. sql 실행
+			ps.executeUpdate();
+			// 4. sql 결과
+			return true;
+		}catch(Exception e) { System.out.println(" sql 오류" + e);}
+		return false;
+		
+	}
 	
-	// 7. 회원수정
+	
+	
+	
+	
+	
+	// 7. 회원수정 [회원번호(대상), 이메일(내용), 주소 를 인수로 받아서 회원수정 ]
+	
+	public boolean update(int mnum,String email,String address) {
+		try {
+					// 1. SQL 작성
+						// 수정 : update 테이블명 set 필드명1=수정값1, 필드명2=수정값2 where 조건
+					String sql = "update member set memail=? , maddress=? where mnum =? ";
+					// 2. SQL 조작
+					ps = con.prepareStatement(sql);
+					ps.setString(1, email); 
+					ps.setString(2, address);
+					ps.setInt(3, mnum);
+					// 3. SQL 실행
+					ps.executeUpdate();
+					return true;
+					
+					// 4. SQL 결과
+					
+					
+		}catch(Exception e) {System.out.println("sql오류 업데이트" + e);}
+		return false;
+	}
+	// 8. 포인트
+	
 	
 	
 	

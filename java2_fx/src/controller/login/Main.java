@@ -26,6 +26,7 @@ public class Main implements Initializable {
 		System.out.println("메인뷰가 실행되었습니다.");
 		// 1.
 		loadpage("/view/login/login");  // loadpage 메소드 호출시 ( 파일경로 )
+		// loadpage 메소드 안에 fxml 작성 했기 때문에 fxml 생략
 	}
 	
 	public void loadpage(String page) { // loadpage( 파일경로 )

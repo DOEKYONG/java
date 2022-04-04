@@ -2,28 +2,61 @@ package controller.home;
 
 
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import controller.login.Login;
 import controller.login.Main;
+import dao.MemberDao;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 
 public class Home  implements Initializable{
 	
 	@FXML
 	private Label lblloginid;
+	@FXML
 	private Label lblpoint;
-	private Label lbllogout;
+	@FXML
+	private Label lbllogout; // fxml
+	@FXML
+	private Label lbldelete;
+	@FXML
+	private Label lblinfo;
+	@FXML
+	private Label lblupdate;
 	
-
+	@FXML
+	private BorderPane borderpane;
+	
+	
+	@FXML
+	public void accinfo( MouseEvent e ) { loadpage("/view/home/info.fxml"); }
+									// loadpage 메소드 안에 fxml 작성 안했기 때문에 fxml까지 작성해주셔야 해요
+	@FXML
+	public void accupdate(MouseEvent e) {loadpage("/view/home/update.fxml");}
+	
+	public void loadpage(String page ) {
+		try {
+			Parent parent = FXMLLoader.load(getClass().getResource(page));
+			borderpane.setCenter(parent);
+		}catch(Exception e ) {System.out.println("회원정보불러오기" + e);}
+	}
+	
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
 		lblloginid.setText(Login.member.getMid()+"님");
-		lblpoint.setText("포인트 : " + Login.member.getMpoint());
+		lblpoint.setText("포인트 : " + Login.member.getMpoint()+"점");
 		
 		
 		
@@ -35,6 +68,36 @@ public class Home  implements Initializable{
 		// 2. 페이지전환
 		Main.instance.loadpage("/view/login/login");
 	}
+	@FXML
+	public void delete(MouseEvent e) {
+		
+		// 1.메시지
+		Alert alert = new Alert(AlertType.CONFIRMATION); // 확인,취소 버튼 타입
+			alert.setHeaderText("정말탈퇴하시겠습니까??");
+	// 2. 버튼확인
+			Optional<ButtonType> optional = alert.showAndWait();
+			
+			if(optional.get() == ButtonType.OK) { // 확인버튼을 눌렀을때
+				// 회원탈퇴 진행
+				boolean result = MemberDao.memberDao.delete(Login.member.getMnum());
+								// 현재 로그인중인 회원의 번호 호출
+				if (result ) { // 탈퇴성공
+					// 로그아웃 [ Login 클래스네 Member 객체 null 으로 수정 ]
+					Login.member = null;
+					// 페이지 전환
+					Main.instance.loadpage("/view/login/login");
+					
+				} else { // 탈퇴실패
+					
+				}
+				
+			}
+			// 아니면 반응없음...
+			
+		
+	}
+	
+	
 	
 	
 	
