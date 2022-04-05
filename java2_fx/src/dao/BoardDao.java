@@ -134,38 +134,50 @@ public class BoardDao {
 			return false;
 		}
 	
-		// 6. 댓글 호출 메소드
-		
-		public ObservableList<Reply> replylist(int bnum) {
+		// 6. 해당 게시물의 댓글들 호출 메소드 
+		public ObservableList<Reply> replylist( int bnum ){
 			
 			ObservableList<Reply> replylist = FXCollections.observableArrayList();
 			
 			try {
-				String sql = " select * from reply where bnum = ? order by rnum desc";
+				String sql = "select * from reply where bnum =? order by rnum desc";
 				ps = conn.prepareStatement(sql);
-				ps.setInt(1, bnum);
-				rs =	ps.executeQuery();
+				ps.setInt( 1 , bnum);
+				rs = ps.executeQuery();
 				
-				while(rs.next()) {
+				while( rs.next() ) {
 					Reply reply = new Reply(
-							rs.getInt(1),
+							rs.getInt(1), 
 							rs.getString(2), 
-							rs.getString(3),
-							rs.getString(4),
-							rs.getInt(5)
-							);
+							rs.getString(3), 
+							rs.getString(4), 
+							rs.getInt(5));
 					replylist.add(reply);
 				}
+				
 				return replylist;
 				
-			}catch(Exception e) {System.out.println("sql오류" + e);}
-			return null;
+			}catch(Exception e ) { System.out.println( "[SQL 오류]"+e  ); }
+				return null;
 		}
-	
-	
-	
-	
-	
-	
-}
+		
+		// 7. 조회수증가 메소드
+//		public boolean viewplus( int bview , String id ) {
+//			
+//			try {
+//				String sql = "select * from board where bview=?";
+//				ps = conn.prepareStatement(sql);
+//				ps.setInt(1, bview);
+//				ps.executeUpdate();
+//				return true;
+//				
+//				
+//				
+//			}catch(Exception e) {System.out.println("sql오류 " + e);}
+//			
+//			
+//			
+//			return false;
+//		}
+	}
 

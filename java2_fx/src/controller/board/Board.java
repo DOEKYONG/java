@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 
 import controller.home.Home;
 import dao.BoardDao;
+import dto.Member;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -20,6 +21,7 @@ public class Board implements Initializable {
     private TableView<dto.Board> boardtable; // 테이블에 넣을 자료형 선택 [ 테이블에 게시물 표시하기위해 ]
     
     public static dto.Board board;
+   
     
     @FXML
     private Button btnwrite;
@@ -62,6 +64,11 @@ public class Board implements Initializable {
     	// 1. 테이블에서 클릭한 객체를 임시객체에 저장	
     	board = boardtable.getSelectionModel().getSelectedItem(); // 클릭된 board 객체 호출
     	// 2. 조회수 증가
+    	
+		
+		
+		
+		
     	// 3. 페이지전환
     	Home.home.loadpage("/view/board/boardview.fxml");
     		
