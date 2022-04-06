@@ -33,7 +33,7 @@
             <Label layoutX="39.0" layoutY="307.0" text="공지사항" textFill="WHITE" />
             <Label layoutX="40.0" layoutY="334.0" text="중고 " textFill="WHITE" />
             <Line endX="-50.0" layoutX="141.0" layoutY="356.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
-            <Label layoutX="39.0" layoutY="363.0" text="남성의류" textFill="WHITE" />
+            <Label fx:id="lblproduct" onMouseClicked ="#accproduct" layoutX="39.0" layoutY="363.0" text="남성의류" textFill="WHITE" />
             <Label layoutX="96.0" layoutY="363.0" text="여성의류" textFill="WHITE" />
             <Label layoutX="154.0" layoutY="363.0" text="게임기기" textFill="WHITE" />
             <Label layoutX="215.0" layoutY="363.0" text="생활용품" textFill="WHITE" />

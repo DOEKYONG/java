@@ -161,23 +161,6 @@ public class BoardDao {
 				return null;
 		}
 		
-		// 7. 조회수증가 메소드
-//		public boolean viewplus( int bview , String id ) {
-//			
-//			try {
-//				String sql = "select * from board where bview=?";
-//				ps = conn.prepareStatement(sql);
-//				ps.setInt(1, bview);
-//				ps.executeUpdate();
-//				return true;
-//				
-//				
-//				
-//			}catch(Exception e) {System.out.println("sql오류 " + e);}
-//			
-//			
-//			
-//			return false;
-//		}
+
 	}
 

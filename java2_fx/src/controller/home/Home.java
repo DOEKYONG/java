@@ -41,9 +41,13 @@ public static Home home; // 객체
 	private Label lblupdate;
 	@FXML
 	private Label lblboard; // fxid가져오기
+	@FXML
+	private Label lblproduct;
 	
 	@FXML
 	private BorderPane borderpane;
+	
+	public void accproduct(MouseEvent e) {loadpage("/view/product/product.fxml");}
 	
 	
 	@FXML// 자유게시 레이블을 클릭했을때 이벤트
