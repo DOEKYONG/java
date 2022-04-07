@@ -96,6 +96,7 @@ public static Home home; // °´Ã¼
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		// TODO Auto-generated method stub
+		loadpage("/view/chatting.fxml");
 		lblloginid.setText(Login.member.getMid()+"´Ô");
 		lblpoint.setText("Æ÷ÀÎÆ® : " + Login.member.getMpoint()+"Á¡");
 		
