@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="borderpane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.home.Home">
+   <left>
+      <AnchorPane prefHeight="720.0" prefWidth="330.0" style="-fx-background-color: black;" BorderPane.alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="63.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../img/stagelogo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="lblloginid" layoutX="46.0" layoutY="216.0" prefHeight="15.0" prefWidth="136.0" text="0000님 " textFill="WHITE" />
+            <Label fx:id="lblpoint" layoutX="46.0" layoutY="240.0" prefHeight="15.0" prefWidth="136.0" text="포인트:  123" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="lbllogout" layoutX="180.0" layoutY="225.0" onMouseClicked="#logout" prefHeight="19.0" prefWidth="62.0" text="로그아웃" textFill="WHITE" />
+            <Line endX="149.0" layoutX="122.0" layoutY="660.0" startX="-113.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label layoutX="38.0" layoutY="668.0" prefHeight="15.0" prefWidth="136.0" text="고객센터 " textFill="WHITE" />
+            <Label layoutX="38.0" layoutY="691.0" prefHeight="15.0" prefWidth="136.0" text="010-1234-1234" textFill="WHITE" />
+            <Label layoutX="186.0" layoutY="668.0" prefHeight="19.0" prefWidth="72.0" text="신고하기 " textFill="WHITE" />
+            <Label layoutX="40.0" layoutY="278.0" text="홈" textFill="WHITE" />
+            <Line endX="-50.0" layoutX="141.0" layoutY="300.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label layoutX="39.0" layoutY="307.0" text="공지사항" textFill="WHITE" />
+            <Label layoutX="40.0" layoutY="334.0" text="중고 " textFill="WHITE" />
+            <Line endX="-50.0" layoutX="141.0" layoutY="356.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label fx:id="lblproduct1" layoutX="39.0" layoutY="363.0" text="남성의류" textFill="WHITE" />
+            <Label fx:id="lblproduct2" layoutX="110.0" layoutY="363.0" text="여성의류" textFill="WHITE" />
+            <Label fx:id="lblproduct3" layoutX="182.0" layoutY="363.0" text="게임기기" textFill="WHITE" />
+            <Label fx:id="lblproduct4" layoutX="249.0" layoutY="363.0" text="생활용품" textFill="WHITE" />
+            <Label layoutX="42.0" layoutY="389.0" prefHeight="19.0" prefWidth="78.0" text="커뮤니티 " textFill="WHITE" />
+            <Line endX="-50.0" layoutX="143.0" layoutY="411.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label layoutX="42.0" layoutY="422.0" text="거래후기" textFill="WHITE" />
+            <Label fx:id="lblboard" layoutX="145.0" layoutY="422.0" text="자유게시판" textFill="WHITE" />
+            <Label layoutX="42.0" layoutY="452.0" text="정보" textFill="WHITE" />
+            <Line endX="-50.0" layoutX="143.0" layoutY="474.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label layoutX="41.0" layoutY="481.0" text="내가쓴글" textFill="WHITE" />
+            <Label fx:id="lblinfo" onMouseClicked="#accinfo" layoutX="98.0" layoutY="481.0" text="회원정보" textFill="WHITE" />
+            <Label fx:id="lblupdate" onMouseClicked="#accupdate" layoutX="156.0" layoutY="481.0" text="회원수정" textFill="WHITE" />
+            <Label fx:id="lbldelete" layoutX="215.0" layoutY="481.0" onMouseClicked="#delete" text="회원탈퇴" textFill="WHITE" />
+            <Label layoutX="40.0" layoutY="512.0" prefHeight="15.0" prefWidth="61.0" text="관리자" textFill="WHITE" />
+            <Line endX="-50.0" layoutX="141.0" layoutY="534.0" startX="-100.0" stroke="WHITE" strokeWidth="3.0" />
+            <Label layoutX="40.0" layoutY="545.0" text="통계" textFill="WHITE" />
+         </children>
+      </AnchorPane>
+   </left>
+</BorderPane>
