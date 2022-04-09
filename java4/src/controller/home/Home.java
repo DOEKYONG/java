@@ -20,6 +20,9 @@ import javafx.scene.layout.BorderPane;
 
 public class Home implements Initializable {
 	
+	public static Home home;
+	public Home() {home = this;}
+	
 	  @FXML
 	    private BorderPane borderpane;
 
@@ -55,6 +58,11 @@ public class Home implements Initializable {
 
 	    @FXML
 	    private Label lbldelete;
+	    
+	    @FXML
+	    public void accboard(MouseEvent e) {
+	    	loadpage("/view/board/board.fxml");
+	    }
 	    
 	    @FXML // 회원수정 이벤트
 	  		public void accupdate(MouseEvent e) {
