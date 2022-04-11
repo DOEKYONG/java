@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
+import javafx.scene.chart.BarChart;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -49,11 +50,21 @@ public static Home home; // 객체
 	private Label lblproduct3; // fxid가져오기
 	@FXML
 	private Label lblproduct4; // fxid가져오기
+	@FXML
+	private Label lblrecord;
+	
+	
 	
 	@FXML
 	private BorderPane borderpane;
 	
 	public static String category;
+	
+	@FXML
+	public void accrecord(MouseEvent e) {
+		loadpage("/view/record.fxml");
+	}
+	
 	
 	@FXML// 남성의류 레이블을 클릭했을때 이벤트
 	public void accproduct1( MouseEvent e ) { 
