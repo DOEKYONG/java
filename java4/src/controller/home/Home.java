@@ -60,6 +60,11 @@ public class Home implements Initializable {
 	    private Label lbldelete;
 	    
 	    @FXML
+	    public void accproduct(MouseEvent e) {
+	    	loadpage("/view/product/product.fxml");
+	    }
+	    
+	    @FXML
 	    public void accboard(MouseEvent e) {
 	    	loadpage("/view/board/board.fxml");
 	    }
