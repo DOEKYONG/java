@@ -11,6 +11,8 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
 
+
+
 public class Member { // 데이터 모델
 	
 	private int mnum; //회원번호
