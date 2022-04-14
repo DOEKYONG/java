@@ -77,9 +77,11 @@ public class Chatting implements Initializable {
     		// 7. 클릭된 객체(방) 가져와서 객체(방)에 저장
     		selectroom =  roomtable.getSelectionModel().getSelectedItem();
     		// 8. 레이블 표시 방 이름 표시 
-    		lblselect.setText("현재 선택된 방 : "+selectroom.getRoname() );
+    		if(selectroom==null) {}
+    		
+    		else{lblselect.setText("현재 선택된 방 : "+selectroom.getRoname() );
     		// 9. 접속 버튼 사용 활성화
-    		btnconnect.setDisable(false);
+    		btnconnect.setDisable(false);}
     	} );
     }
     
