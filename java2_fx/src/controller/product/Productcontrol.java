@@ -60,6 +60,7 @@ public class Productcontrol implements Initializable {
     				// * 그리드내 셀 여백 
     				gridPane.setHgap(20); // 세로여백 
     				gridPane.setVgap(20); // 가로여백
+    			
     				
     			// 3. 반복문 
     			int i = 0 ; // 인덱스용 변수
