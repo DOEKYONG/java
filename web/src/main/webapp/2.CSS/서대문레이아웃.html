@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>서대문 레이아웃</title>
+<style type="text/css">
+	*{border: solid 1px red; text-align: center;}
+.header-1{
+	margin:0 auto;
+	width: 941px;
+	height: 25.8px;
+}	
+.header-2{
+	margin:0 auto;
+	width: 1062px;
+	height: 112px;
+}
+.wrap {
+	margin: 0 auto;
+	width: 1280px;
+	
+}
+.content{
+	
+	display: flex;
+	flex-direction: column;
+}
+.content1{
+	display: flex;
+	flex-direction: row;
+	
+}
+.content1-left{
+	width: 1012px;
+	height: 496px;
+	margin-right: 10px;
+}
+.content1-right{
+	width: 242px;
+	height: 496px;
+}
+.footer{
+	margin :0 auto;
+	width : 865px;
+	
+	display: flex;
+	flex-direction: column;
+	clear: both;
+}
+.footer_layout {
+	display: flex;
+	flex-direction: row;
+	
+}
+.footer-left {
+	width: 644px;
+	
+	}
+	
+	.footer-right {
+	width: 512px;
+	
+	}
+	.img{
+		display : flex;
+		justify-content : space-between;
+		width: 240px;
+		height: 150px;
+		margin-top: 5px;
+	}
+
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="header">
+	<div class="header-1">top header</div>
+	<div class="header-2">main header</div>
+	</div>
+	
+	<div class="content"> 컨테이너wrap
+		<div class="content1">
+		<div class="content1-left">left</div>
+		<div class="content1-right">right
+		<div class = "img">이미지</div>
+		<div class = "img">이미지</div>
+		<div class = "img">이미지</div>
+		</div>
+		</div>
+		<div class="content2"></div>
+	</div>
+	
+	<div class="footer">
+	<div class= footer_layout>
+	<div class="footer-left">
+	<p>주소</p>
+	<p>전화</p>
+	</div>
+	<div class="footer-right">
+	<span>이미지</span> 
+	<span>검색</span>
+	</div>
+	
+	</div>
+	
+	</div>
+
+</div>
+
+</body>
+</html>

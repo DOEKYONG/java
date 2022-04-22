@@ -1,0 +1,54 @@
+*{ padding: 0px; margin: 0px;}
+*{font-family: 'SF_IceMango'; }
+
+a { text-decoration: none; color: black;}
+
+@font-face {
+    font-family: 'SF_IceMango';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2106@1.1/SF_IceMango.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+.header_logo{
+	font-size: 30px;
+}
+.nav-item{
+	font-size: 25px;
+}
+.carousel-item img{
+	width: 100%;
+}
+.item .title{
+	font-size: 28px;
+}
+.item .content{
+	font-size: 18px;
+	margin-bottom: 50px;
+}
+.item .price1{
+	font-size: 21px;
+	color : gray;
+	text-decoration: line-through;
+	
+}
+.item .price2{
+	font-size: 30px;
+}
+.badge{
+	font-size: 20px;
+}
+.new{
+	font-size: 50px;
+}
+.new2{
+	font-size: 30px;
+}
+.new3{
+	font-size: 30px;
+}
+.new4{
+	font-size: 20px;
+}
+

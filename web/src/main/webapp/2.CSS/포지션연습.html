@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>포지션 연습</title>
+<style type="text/css">
+
+.bg{background-color: green;
+	width: 800px;
+	height: 800px;
+	margin: 0 auto;
+	position: relative;
+}
+h1{
+	text-align: center;
+}
+
+#box1,#box2,#box3,#box4,#box5,#box6{
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	width: 100px;
+	height: 70px;
+	background-color: yellow;
+	border-radius: 20px;
+	text-align: center;
+	box-shadow: 5px 3px 3px white;
+	font-weight: bold;
+	
+}
+#box1 {
+	position: absolute;
+	top: 200px; left: 350px;
+}
+
+#box2{
+	position: absolute;
+	top:300px; left: 200px;
+}
+#box3{
+	position: absolute;
+	top:400px; left: 200px;
+}
+
+#box4{
+	position: absolute;
+	top: 520px; left: 350px;
+
+}
+#box5{
+position: absolute;
+top: 400px;
+left: 500px;
+}
+#box6{
+position: relative;
+top:300px;
+left: 500px;
+
+}
+
+
+</style>
+</head>
+<body>
+	<h1>프로그래밍강좌</h1>
+	<div class="bg">
+	
+
+	<div id="box1">
+	html<br>연습
+	</div>
+	<div id="box2">
+	css<br>강좌
+	</div>
+	<div id="box3">
+	c#<br>강좌
+	</div>
+	<div id="box4">
+	PHP<br>강좌
+	</div>
+	<div id="box5">
+	자바강좌
+	</div>
+	<div id="box6">
+	파이썬<br>강좌
+	
+	</div>
+	
+	</div>
+	
+	
+
+</body>
+</html>
