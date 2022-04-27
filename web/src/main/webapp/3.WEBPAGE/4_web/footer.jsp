@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+
 </head>
 <body>
 	<div class="bg-light text-dark">
@@ -27,11 +28,11 @@
 				</div>
 				
 				<div class="col-md-4">
-					<a class="ic" href="#" ><i class="fab fa-facebook"></i></a>
-					<a href="#"><i class="fab fa-twitter"></i></a>
-					<a href="#"><i class="fab fa-google"></i></a>
-					<a href="#"><i class="fab fa-instagram"></i></a>
-					<a href="#"><i class="fab fa-github-alt"></i></a>
+					<a class="ic" href="#" ><i class="fab fa-facebook fa-4x"></i></a>
+					<a href="#"><i class="fab fa-twitter fa-4x"></i></a>
+					<a href="#"><i class="fab fa-google fa-4x"></i></a>
+					<a href="#"><i class="fab fa-instagram fa-4x"></i></a>
+					<a href="#"><i class="fab fa-github-alt fa-4x"></i></a>
 				
 				</div>
 			

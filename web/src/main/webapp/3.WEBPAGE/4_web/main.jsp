@@ -5,8 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
-	<!--  사용자정의한 css포함 -->
-	<link rel="stylesheet" type="text/css" href="CSS/main.css">
+	
 </head>
 <body>
 	<%@include file ="header.jsp" %>

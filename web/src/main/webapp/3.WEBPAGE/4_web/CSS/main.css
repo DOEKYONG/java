@@ -51,4 +51,41 @@ a { text-decoration: none; color: black;}
 .new4{
 	font-size: 20px;
 }
+.titleline{
+	border-bottom : solid 5px black;
+	width: 200px; 
+	margin: 0 auto;
+}
+.line {
+	border-bottom : solid 1px black;
+	width: 600px; 
+	margin: 0 auto;
+	
+}
+textarea{
+	
+	overflow-y:scroll;
+}
 
+#agree{
+	margin-left: 20px;
+}
+.stitle{
+	margin-top: 30px;
+}
+.stitle span{
+	color: red;
+	
+}
+.stitle{
+	display: flex;
+	flex-direction: row;
+	
+	
+}
+.star{
+	color: red;
+}
+.agreebox{
+	margin-top: 10px;
+}

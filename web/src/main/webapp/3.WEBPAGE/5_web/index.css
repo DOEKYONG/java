@@ -1,0 +1,195 @@
+@charset "EUC-KR";
+
+*{
+	font-family: "Nanum Gothic";
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	color: #eeeeee;
+}
+.tophead{
+	font-size : 12px;
+	margin-left: 12px;
+	
+}
+li {
+	list-style: none;
+}
+
+.logo{
+	margin-bottom: 40px;
+	margin-left: 30px;
+}
+
+.searchbar {
+
+
+	
+}
+#searchtext{
+	width: 115px;
+	height: 31px;
+	margin-left: 10px;
+	border: none;
+	border-bottom: solid 1px black;
+}
+.searchbar span{
+	margin-left: 10px;
+}
+.sidebarwrap {
+	position:fixed;
+	margin-top: 80px;
+	
+}
+.content{
+	margin-top: 80px;
+	padding : 38px 38px 81px 0 ;
+	
+}
+
+.line{
+	border: solid 1px #eeeeee;
+}
+.price1{
+	font-weight: bold;
+}
+
+.card{
+	border: white;
+}
+.f1{
+	font-size :20px;
+	color:rgba(0,0,0,0.5);
+	
+}
+
+.footerbox{
+	
+	border-top: solid 1px #eeeeee;
+	margin-top : 20px;
+	
+	display: flex;
+	justify-content: flex-start;
+	
+	padding-right: 38px;
+}
+.footer_2{
+	
+	margin-left: 150px;
+}
+.footerbox{
+	
+	font-size: 11px;
+}
+.footer_1, .footer_2{
+	
+	margin-top: 20px;
+}
+.loginwrap{
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+}
+.loginform{
+	display: flex;
+	flex-direction: column;
+	
+}
+.loginform .txt{
+	border-bottom : solid 2px black;
+	width: 237.94px;
+	height: 32px;
+	margin-top: 5px;
+}
+button{
+	width: 100px;
+	height: 76px;
+	background-color: #333333;
+	color: white;
+	
+	
+}
+.btn_login{
+	margin-left: 20px;
+}
+.login{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 40px;
+	flex-direction: column;
+}
+.forgot{
+	font-size: 11px;
+	padding: 0px 10px 0px 10px;
+	margin-top: 20px;
+}
+.fid{
+	margin-left: 20px;
+	margin-right: 20px;
+}
+.imgbtn1{
+	margin-top: 23px;
+	
+}
+.imgbtn2{
+	margin-top: 5px;
+}
+.btn_join{
+	
+	margin-top: 18px;
+}
+
+.btn_join button {
+	width: 370px;
+	height: 50px;
+	background-color: #84868b;
+	color: white;
+	border: none;
+}
+.form {
+	
+	font-size : 1px;
+	display: flex;
+	flex-direction: row;
+	margin-top: 10px;
+	align-items: center;
+
+}
+.form_text input{
+	width: 189px;
+	height: 32px;
+	
+	
+}
+.form_text{
+	margin-left: 20px;
+}
+.bloginform{
+	
+	display: flex;
+	
+	flex-direction: column;
+	align-items: center;
+	
+}
+.sp1{
+	margin-right: 130px;
+}
+.sp2{
+	margin-right: 78px;
+}
+.blogin{
+	margin-top : 20px;
+	background-color : white;
+	border : solid 1px #eeeeee;
+	color : black;
+	width: 370px;
+	height: 40px;
+}
