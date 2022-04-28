@@ -30,7 +30,7 @@
 				<div class="carousel-item active"> 
 					<img src="../img/°í¾çÀÌ3.jpg" width="100%" height="30%">
 					<div class="carousel-caption">
-						adsfds
+						
 					</div>
 				</div>
 			

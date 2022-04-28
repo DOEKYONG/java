@@ -26,12 +26,14 @@
 				</div>
 		
 		<!-- 이미지 이동 버튼 -->
-		<button class="carousel-control-prev" data-bs-target="#cs" data-bs-slide="prev">
+		
+		<button class="carousel-control-prev btns" data-bs-target="#cs" data-bs-slide="prev">
 			<span class="carousel-control-prev-icon"></span>
 		</button>
-		<button class="carousel-control-next" data-bs-target="#cs" data-bs-slide="next">
+		<button class="carousel-control-next btns" data-bs-target="#cs" data-bs-slide="next">
 			<span class="carousel-control-next-icon"></span>
 		</button>
+	
 	 </div> <!-- 캐러셀 end -->
 	 	<h3 class="text-center" style="margin-top:30px;">베스트 셀러</h3>
 	 	<p class="text-center">#베스트셀러</p>
