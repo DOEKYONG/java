@@ -150,6 +150,21 @@ public class Dao {
 		return false;
 	}
 	
+	public boolean update(int bnum,String title, String content) {
+		try {
+			String sql = "update board set btitle=?, bcontent=? where bno=?";
+			
+			ps= con.prepareStatement(sql);
+			ps.setString(1, title);
+			ps.setString(2, content);
+			ps.setInt(3, bnum);
+			ps.executeUpdate();
+			return true;
+			
+		}catch(Exception e) {System.out.println("수정" + e);}
+		return false;
+	}
+	
 	
 	
 	

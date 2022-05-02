@@ -51,6 +51,7 @@
 				<td><%= temp.getBwriter() %></td>
 				<td><a href="view.jsp?bno=<%=temp.getBno()%>">
 						<%= temp.getBtitle() %> </a></td>
+				<td><%=temp.getBcontent() %>
 			</tr>				
 		<%		
 			}

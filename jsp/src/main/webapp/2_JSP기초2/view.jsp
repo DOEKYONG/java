@@ -20,7 +20,7 @@
 		String loginid = (String)session.getAttribute("loginid");
 		if(loginid != null && loginid.equals( board.getBwriter() )) {
 		%>
-		<a href="upadate.jsp"><button>수정</button></a>	
+		<a href="bupdate.jsp?bno=<%=bno%>"><button>수정</button></a>	
 		<a href="bdeletecontroller.jsp?bno=<%=bno%>"><button>삭제</button></a>
 			
 			
