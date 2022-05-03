@@ -14,7 +14,7 @@ public class Dao {
 			
 			try { // 예외처리 => 자바외 외부통신할때 : 일반예외가 무조건 발생 
 				Class.forName("com.mysql.cj.jdbc.Driver");
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jsptest?serverTimezone=UTC",
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/jspweb?serverTimezone=UTC",
 						"root","1234");
 				System.out.println("연동 성공 ");
 			}catch(Exception e ){ System.out.println("연동 실패 "+e);}

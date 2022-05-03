@@ -1,6 +1,6 @@
 @charset "UTF-8";
-
-
+@import "/jspweb/css/member/signup.css";
+@import "/jspweb/css/member/login.css";
 *{
-	font-family: "궁서";
+	
 }

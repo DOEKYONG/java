@@ -4,6 +4,16 @@ package dto;
 
 public class Member {
 	
+	
+	
+	
+	@Override
+	public String toString() {
+		return "Member [mno=" + mno + ", mid=" + mid + ", mpassword=" + mpassword + ", mname=" + mname + ", mphone="
+				+ mphone + ", memail=" + memail + ", maddress=" + maddress + ", mpoint=" + mpoint + ", mdate=" + mdate
+				+ "]";
+	}
+
 	private int mno;
 	private String mid;
 	private String mpassword;

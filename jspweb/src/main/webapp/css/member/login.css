@@ -1,0 +1,42 @@
+@charset "UTF-8";
+.login_wrap{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	 font-family: 'Nanum Gothic', sans-serif;
+	 font-weight: bold;
+	 margin-top: 250px;
+	
+}
+
+.login_login_idform{
+	margin-bottom: 15px;
+}
+
+.login_login_pwform {
+	margin-bottom: 15px;
+}
+
+.login_login_pwform input {
+	margin-left: 5x;
+}
+.login_login_idform input {
+	margin-left: 15px;
+}
+
+#btnlogin{
+	margin-left: 70px;
+    width: 112px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    background-color: teal;
+    color: white;
+}
+#btnlogin:hover{
+	color: yellow;
+}
+#alert{
+	    margin-left: 35px;
+	    color: red;
+}

@@ -1,4 +1,4 @@
-package controller;
+package controller.member;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -28,7 +28,7 @@ public class idcheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getParameter("UTF-8"); 	// 요청시 사용되는 인코딩타입 [ 한글 ] 
+		request.setCharacterEncoding("UTF-8"); 	// 요청시 사용되는 인코딩타입 [ 한글 ] 
 		String mid = request.getParameter("mid"); // 데이터 요청 
 		// 1. dao를 통해 동일한 아이디가 있는지 체크 
 		boolean result 
