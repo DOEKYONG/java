@@ -51,6 +51,70 @@ public class MemberDao extends Dao {
 				return 2; // 동일한 값이 없으면 2실패 
 			}catch (Exception e) {} return 3; // DB오류이면 3실패
 		}
-	
-	
-}
+		
+		// 개별 회원정보 출력 [ 인수 : 세션에 저장된 회원id ]
+		public Member getmember( String mid ) {
+			//String sql = "select * from member where mid = ?";
+			String sql = "select * from member where mid = '"
+							+mid+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery();
+				if( rs.next() ) {
+					// 패스워드(보안상)를 제외한 검색된 레코드의 모든 필드의 값을 객체화
+					Member member = new Member(
+							rs.getInt(1), rs.getString(2), 
+							null, rs.getString(4), 
+							rs.getString(5), rs.getString(6), 
+							rs.getString(7),rs.getInt(8), 
+							rs.getString(9) );
+					return member; // 검색된 객체 반환
+				}
+			}catch (Exception e) {} return null;
+		}
+		
+		// 패스워드 확인 메소드 
+		public boolean passwordcheck( String mid , String mpassword ) {
+			
+			String sql = "select * from member where mid = '"+mid+"' and mpassword = '"+mpassword+"'";
+			try {
+				ps = con.prepareStatement(sql);
+				rs = ps.executeQuery(); if( rs.next() ) return true;
+			}catch (Exception e) { System.out.println( e );} return false;
+		}
+		
+		// 회원 삭제 메소드 
+		public boolean delete( String mid ) {
+			String sql ="delete from member where mid = '"+mid+"'";
+			try { ps=con.prepareStatement(sql); ps.executeUpdate(); return true; }
+			catch (Exception e) { System.out.println(e); } return false;
+		}
+		
+		// 회원 수정 메소드 
+		public boolean update( Member member ) {
+			try {
+			if( member.getMpassword() == null ) { // 패스워드 변경이 없을때 
+				String sql ="update member set mname=? ,  mphone=? , memail=?,"
+						+ "maddress = ? where mno=?";
+					ps = con.prepareStatement(sql);
+					ps.setString( 1 , member.getMname() );
+					ps.setString( 2 , member.getMphone() );
+					ps.setString( 3 , member.getMemail() );
+					ps.setString( 4 , member.getMaddress() );
+					ps.setInt( 5, member.getMno() );
+			}else {	// 패스워드가 변경이 있을때 
+				String sql ="update member set mname=? , mpassword = ? ,  mphone=? , memail=?,"
+						+ "maddress = ? where mno=?";
+					ps = con.prepareStatement(sql);
+					ps.setString( 1 , member.getMname() );
+					ps.setString( 2 , member.getMpassword() );
+					ps.setString( 3 , member.getMphone() );
+					ps.setString( 4 , member.getMemail() );
+					ps.setString( 5 , member.getMaddress() );
+					ps.setInt( 6 , member.getMno() );
+			}
+				ps.executeUpdate(); return true;
+			}catch (Exception e) {} return false;
+		}
+		
+	}

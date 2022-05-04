@@ -230,4 +230,8 @@ function signup(){
             }
         }).open();
     }
+    
+    function passwordchange(){
+	$("#passwordbox").css("display","block");
+}
 
