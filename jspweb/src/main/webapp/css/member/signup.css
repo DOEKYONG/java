@@ -10,7 +10,7 @@
 	
 	
 }
-input {
+input text {
 	box-shadow: 5px 3px 3px #eeeeee;
 	border:none;
 	border-top: solid 1px #eeeeee;
@@ -83,7 +83,7 @@ h3{
 .btn_area{
 	margin-top: 50px;
 }
-button{
+.btn_area button{
 	width: 200px;
 	height: 45px;
 }
