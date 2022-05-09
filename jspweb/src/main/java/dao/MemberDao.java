@@ -130,7 +130,7 @@ public class MemberDao extends Dao {
 			} catch (Exception e) {}
 			return 0;
 			}
-		
+		// 아이디 출력 메소드
 		public String getmid(int mno) {
 			String sql = "select * from member where mno ='"+mno+"'";
 			try {

@@ -46,6 +46,7 @@ public class write extends HttpServlet {
 		// 1.개발중인 프로젝트경로
 		//String uploadpath = "C:/Users/504/git/java/jspweb/src/main/webapp/board/upload";
 			// 2.서버 폴더 경로
+		// 서버 경로 찾기 : request.getSession().getServletContext().getRealPath( 경로 ) ;
 		System.out.println("서버의 경로찾기 : " +request.getServletContext().getRealPath("/upload"));
 		
 		String uploadpath =request.getServletContext().getRealPath("/board/upload");

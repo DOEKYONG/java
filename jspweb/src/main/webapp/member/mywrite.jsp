@@ -1,18 +1,20 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.util.Date"%>
-<%@page import="dao.MemberDao"%>
-<%@page import="dao.BoardDao"%>
 <%@page import="dto.Board"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="dao.BoardDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
 	
-	<%@include file ="../header.jsp" %>
+	
+			<%@include file ="../header.jsp" %>
 
 	<div class="container">
 		<h3> 자유게시판 </h3>
@@ -21,7 +23,7 @@
 			String mid = (String)session.getAttribute("login");
 			if( mid != null ){
 		%>
-			<a href="boardwrite.jsp"> 글쓰기 </a>
+			<a href="../board/boardwrite.jsp"> 글쓰기 </a>
 		<%} %>
 		
 		<table class="table"> <!-- 테이블 -->
@@ -60,9 +62,10 @@
 							// 2. JS : "location.href='파일명(경로).jsp?변수명=값'"
 							// 3. java : resopnse.sendRedirect("파일명(경로).jsp?변수명=값");
 				 -->
-				<tr onclick=" location.href='boardview.jsp?bno=<%=board.getBno()%>'" style="cursor: pointer">
-			
-					<td> <%=board.getBno() %> </td>
+				<% if(mid.equals(board.getMid())) { %>
+					
+					<tr onclick=" location.href='../board/boardview.jsp?bno=<%=board.getBno()%>'">
+					<td> <%=board.getBno()%>  </td>
 					<td> <%=board.getBtitle() %> </td>
 					<td> <%=board.getMid() %> </td>
 					<td> <%=board.getBview() %> </td>
@@ -71,6 +74,9 @@
 			<%
 				}
 			%>
+				<% }%>
+
+			
 			
 			
 		</table>
