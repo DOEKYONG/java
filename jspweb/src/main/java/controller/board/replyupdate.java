@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import dao.BoardDao;
+import dao.MemberDao;
 import dto.Board;
 import dto.Reply;
 
@@ -33,12 +34,16 @@ public class replyupdate extends HttpServlet {
     	request.setCharacterEncoding("UTF-8");
     	int rno = Integer.parseInt(request.getParameter("rno") );
     	int bno = Integer.parseInt(request.getParameter("bno") );
-    	String updatecontent = request.getParameter("updatecontent");
-    	Reply up = new  Reply(rno,updatecontent,null,0,0,0,null);
-		boolean result = BoardDao.getBoardDao().replyupdate(updatecontent,rno);
+    	
+    	String updatecontent1 = request.getParameter("updatecontent1");
+    	String mid = (String)request.getSession().getAttribute("login");
+		int mno = MemberDao.getmemberDao().getmno(mid);
+    	Reply reply = new Reply(rno,updatecontent1,null,0,bno,mno,null);
+		boolean result = BoardDao.getBoardDao().replyupdate(reply);
+    	
 		
 		if( result ) {
-			System.out.print(up.toString());
+			System.out.println(reply.toString());
 			response.getWriter().print(1); }
 		else { response.getWriter().print(2); }
 	}

@@ -101,7 +101,7 @@
 				<td width="80%" colspan="2">
 					<%=reply.getRcontent() %> <br> 
 				<% if( mid !=null && mid.equals( reply.getMid() ) ){ // 본인 작성한 댓글이면 %>
-					<button type= "button" class= "btn replybtn" onclick="updateview(<%=reply.getRno()%>,<%=reply.getBno()%>)"> 수정 </button>
+					<button type= "button" class= "btn replybtn" onclick="updateview(<%=reply.getRno()%>,<%=reply.getRcontent()%>,<%=reply.getBno()%>)"> 수정 </button>
 					<button type="button" class="btn replybtn" onclick="replydelete(<%=reply.getRno()%>)"> 삭제 </button>
 				<%} %>
 					<button class="btn replybtn" 
@@ -109,7 +109,7 @@
 																	<!-- js메소드에 인수 넣을때 문자열 ' '처리 //  숫자형 제외 -->
 					댓글 
 					</button>
-					
+					<span><%=reply.getBno()%></span>
 				</td>
 			</tr>
 			<tr> <!-- 수정 입력창 -->

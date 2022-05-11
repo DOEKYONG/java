@@ -97,13 +97,13 @@ function replydelete( rno ){
 	});
 }
 
-function updateview( rno , bno ){ // 대댓글 입력창 표시 메소드 
+function updateview(rno,rcontent,bno){ // 대댓글 입력창 표시 메소드 
 	
 	// JS 작성 공간 에서는 HTML 작성 불가능 --> HTML 문자처리 
 		$("#"+rno).html(
 			'<div class="row">'+
 				'<div class="col-md-10">'+
-					'<textarea name="updatecontent" id="updatecontent" class="form-control" rows=3></textarea>'+
+					'<textarea name="updatecontent1" id="updatecontent1" class="form-control" rows=3>'+rcontent+'</textarea>'+
 				'</div>'+
 				'<div class="col-md-2">'+
 					'<button class="form-control py-4 my-1" onclick="replyupdate('+rno+','+bno+')">수정 등록</button>'+
@@ -112,11 +112,14 @@ function updateview( rno , bno ){ // 대댓글 입력창 표시 메소드
 		);	
 }
 
-function replyupdate( rno ){ // 수정쓰기메소드
-	
+function replyupdate(rno ,bno){ // 수정쓰기메소드
+	let updatecontent1= $("#updatecontent1").val();
+	alert(rno)
+	alert(bno)
+	alert(updatecontent1);
 	$.ajax({
 		url : "replyupdate" , 
-		data : { "rno" : rno  } ,
+		data : { "rno" : rno ,"updatecontent1":updatecontent1,"bno":bno  } ,
 		success : function( result ){
 			if( result ==1 ){
 				alert("댓글 수정 되었습니다.");

@@ -33,9 +33,7 @@
 			</tr>
 			<!-- for 문 -->
 			<%
-				Date nowDate = new Date();
-				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-					String now = simpleDateFormat.format(nowDate);
+				
 					
 				
 					
@@ -45,13 +43,10 @@
 					BoardDao.getBoardDao().getboardlist();
 					System.out.println( boardlist);
 				for( Board board : boardlist ){
-					System.out.println( board.toString() );
-					String date = board.getBdate().substring(0,10);
-					if(!now.equals(date)) {
-						date = board.getBdate().substring(0,10);
-					}else {
-						date = board.getBdate().substring(10);
-					}
+					
+					
+				
+					
 					
 				
 			%>
@@ -69,7 +64,7 @@
 					<td> <%=board.getBtitle() %> </td>
 					<td> <%=board.getMid() %> </td>
 					<td> <%=board.getBview() %> </td>
-					<td> <%=date %> </td>
+					<td> <%=board.getBdate() %> </td>
 				</tr>
 			<%
 				}
