@@ -46,14 +46,14 @@ public class getproductlist extends HttpServlet {
 		ArrayList<Product> productlist = ProductDao.getProductDao().getproductlist();
 		for(Product product : productlist) {
 			html += 
-					"<th>"+product.getPno()+"</th>"
-					+"<th>"+product.getPimg()+"</th>"
-					+"<th>"+product.getPname()+"</th>"
-					+"<th>"+product.getPdiscount()+"</th>"
-							+"<th>"+product.getPprice()+"</th>"
-					+"<th>"+product.getPprice()+"</th>"
-					+"<th>"+product.getPactive()+"</th>"
-					+"<th>"+product.getCno()+"</th> <br>"
+					"<td>"+product.getPno()+"</td>"
+					+"<td>"+product.getPimg()+"</td>"
+					+"<td>"+product.getPname()+"</td>"
+					+"<td>"+product.getPdiscount()+"</td>"
+							+"<td>"+product.getPprice()+"</td>"
+					+"<td>"+product.getPprice()+"</td>"
+					+"<td>"+product.getPactive()+"</td>"
+					+"<td>"+product.getCno()+"</td> " +"<br>"
 					
 					;
 		}

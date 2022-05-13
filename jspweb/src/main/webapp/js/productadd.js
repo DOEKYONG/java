@@ -2,11 +2,14 @@
 /* -------- 카테고리 버튼 눌렀을때 함수(이벤트) ------- */
 function categorybtn(){
 	// 특정태그의 HTML 넣기 
-	$("#categotyinput").html(
-		'<input type="text" id="cname">'+
-		'<button onclick="categoryadd()" type="button">등록</button>'
+$("#categoryinput").html(
+		'<div class="row">'+
+		'<div class="col-md-5">'+'<input class="form-control" type="text" id="cname">'+'</div>'+
+		'<div class="col-md-5">'+'<button class="form-control" onclick="categoryadd()" type="button">등록</button>'+'</div>'+
+		'</div>'
 	)
 }
+
 /* -----------------------------------------*/
 /* -------- 카테고리 등록 눌렀을때 함수(이벤트) ------- */
 function categoryadd(){
@@ -18,15 +21,20 @@ function categoryadd(){
 			if( result == 1 ){  
 				alert("카테고리추가"); 
 				$("#categotyinput").html("");
+				getcategory();
 			}
 			else{ alert("카테고리실패"); }
 		}
 	});
 }
+
+$(function category() {
+	getcategory();
+})
 /* -------- -------------------------- ------- */
 // ----------카테고리 호출-------------
 
-$(function getcategory() {
+function getcategory() {
 	
 	$.ajax({
 		url : "getcategory", 
@@ -35,7 +43,7 @@ $(function getcategory() {
 		}
 	})
 	
-})
+}
 /* -------- ----------form 전송------------- ------- */
 function productadd() {
 	
@@ -61,6 +69,24 @@ function productadd() {
 		
 	})
 }
+////////////////////////////////////////////////
+/* 첨부파일이 변경되면 특정태그에 첨부파일 이미지 표시*/
+$("#pimg").change( function(e) {
+//	alert(e); /*change 된 객체*/
+//	alert(e.target); /*객체.target() -> html 태그*/
+//	alert(e.target.files[0]);
+	// 클라이언트가 업로드시 업로드파일의 경로 알기
+	let reader =new FileReader();
+	reader.readAsDataURL(e.target.files[0]);
+	reader.onload = function(e) { // 찾은 파일 경로 실행
+		alert(e.target.result)
+		$("#preview").attr("src",e.target.result);
+	}
+	
+	alert($("#pimg").val());
+	/* c:\fakepath\~~~*/
+	/* 클라이언트가 사진을 업로드시 js가 클라이언트의 경로를 알수가 없다 */
+} );
 
 
 
