@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ProductDao;
 import dto.Category;
+import dto.Stock;
 
 /**
  * Servlet implementation class getcategory
@@ -33,6 +34,10 @@ public class getcategory extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		// 반환타입 변수 호출
+		String type = request.getParameter("type");
+		
+		
 		//  변수 요청x
 		// db에서 카테고리 리스트 호출
 		ArrayList<Category> arrayList = ProductDao.getProductDao().getcategorylist();
@@ -40,17 +45,33 @@ public class getcategory extends HttpServlet {
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter out= response.getWriter();
 		String html =""; // 응답할 문자열~
-		int i =1;
-		for( Category temp  : arrayList  ) {
 		
-		html += 
-				"<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
 		
-		if( i % 6 == 0 ) html += "<br>"; // 만약에 카테고리가 개수 6배수마다 줄바꿈처리 
 		
-		i++;
 		
+		 if(type != null && type.equals("option")) {
+			
+			for(Category temp : arrayList ) {
+				html += 
+				"<option value=\""+temp.getCno()+"\">"+temp.getCname()+"</option>";
+			}
+			
+		} else {
+			int i =1;
+			for( Category temp  : arrayList  ) {
+				
+				html += 
+						"<input type=\"radio\" name=\"cno\" value=\""+temp.getCno()+"\">"+temp.getCname();
+				
+				if( i % 6 == 0 ) html += "<br>"; // 만약에 카테고리가 개수 6배수마다 줄바꿈처리 
+				
+				i++;
+				
+				}
+			
 		}
+		
+		
 		out.print(html); // 해당 문자열 응답~
 	}
 
