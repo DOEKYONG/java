@@ -45,31 +45,24 @@ public class productadd extends HttpServlet {
 		
 		
 		MultipartRequest multi = new MultipartRequest(
-				request,  			// 요청타입
-				request.getSession().getServletContext().getRealPath("/admin/productimg"), 	// 저장 폴더위치
-				1024*1024*1024, 					// 파일 최대 용량
-				"UTF-8",				// 파일 인코딩타입
-				new DefaultFileRenamePolicy() // 보안방식 =
-				// DefaultFileRenamePolicy : 파일명이 중복이면 파일명 뒤에 숫자 식별
+				request,			/*요청 타입 */ 
+				request.getSession().getServletContext().getRealPath("/admin/productimg") , /* 저장 폴더위치 */
+				1024*1024*1024, 	/* 파일 최대용량 = 바이트 기준 */
+				"UTF-8" ,			/* 파일 인코딩타입 */
+				new DefaultFileRenamePolicy()/* 보안 방식 = */
+				/* DefaultFileRenamePolicy : 파일명이 중복이면 파일명 뒤에 숫자 자동 부여 = 식별 */
 				);
+		String panme = multi.getParameter("pname");
+		int pprice = Integer.parseInt( multi.getParameter("pprice") );
+		float pdiscount = Float.parseFloat( multi.getParameter("pdiscount") ) ;
+		int cno = Integer.parseInt( multi.getParameter("cno") );
+		String pimg = multi.getFilesystemName("pimg"); // 첨부파일 파일명은 요청시 .getFilesystemName() 메소드 이용 
+		Product product = new Product( 0 , panme, pprice, pdiscount, 0, pimg, cno);
 		
-		String pname =	multi.getParameter("pname");
-		int pprice = Integer.parseInt(multi.getParameter("pprice"));
-		float pdiscount = Float.parseFloat(multi.getParameter("pdiscount"));
-		int cno = Integer.parseInt(multi.getParameter("cno"));
-		String pimg = multi.getFilesystemName("pimg");
+		boolean result =  ProductDao.getProductDao().psave(product);
 		
-		Product product = new Product(0,pname,pprice,pdiscount,0,pimg,cno);
-		
-		
-		boolean result = ProductDao.getProductDao().psave(product);
-		if(result) {
-			response.getWriter().print(1);
-		
-		}else {
-			response.getWriter().print(2);
-			
-		}
+		if( result ) { response.getWriter().print(1);}
+		else { response.getWriter().print(2);}
 		
 	}
 

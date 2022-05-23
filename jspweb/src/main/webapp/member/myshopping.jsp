@@ -16,6 +16,12 @@
 			</div>
 			<div class="col-md-9">
 				 <h3>주문현황</h3>
+				 <div id="myorderbox">
+				 	
+				 
+				 </div>
+				 
+				 
 			</div>
 		
 		</div>
