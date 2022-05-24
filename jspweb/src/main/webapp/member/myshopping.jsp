@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/jspweb/css/myshopping.css" rel="stylesheet">
 </head>
 <body>
 
@@ -16,20 +17,20 @@
 			</div>
 			<div class="col-md-9">
 				 <h3>주문현황</h3>
-				 <div id="myorderbox">
+				 
+				 
+				 
+				 <div id="orderbox"> 
+				 	
 				 	
 				 
 				 </div>
-				 
-				 
 			</div>
-		
 		</div>
-	
-	
-	</div>
+	</div> 
+<%@include file = "../footer.jsp" %>
 
 
-
+<script type="text/javascript" src="/jspweb/js/myshopping.js"></script>
 </body>
 </html>
