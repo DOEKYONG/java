@@ -371,5 +371,14 @@ public class ProductDao extends Dao {
 			}catch (Exception e) { System.out.println( e );} return null;
 		}
 		
+		public boolean cancelorder( int orderdetailno , int active) {
+			
+			try {
+				String sql = "update porderdetail set orderdetailactive = " + active
+						+" where orderdetailno = "+orderdetailno;
+				ps = con.prepareStatement(sql); ps.executeUpdate(); return true;
+			} catch (Exception e) { System.out.println( "취소요청실패 오류 "+e ); } return false;
+		}
+		
 		
 	}
