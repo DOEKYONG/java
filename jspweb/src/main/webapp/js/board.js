@@ -97,7 +97,7 @@ function replydelete( rno ){
 	});
 }
 
-function updateview(rno,rcontent,bno){ // 대댓글 입력창 표시 메소드 
+function updateview(rno,rcontent,bno){ // 댓글수정창 표시 메소드 
 	
 	// JS 작성 공간 에서는 HTML 작성 불가능 --> HTML 문자처리 
 		$("#"+rno).html(
@@ -114,9 +114,9 @@ function updateview(rno,rcontent,bno){ // 대댓글 입력창 표시 메소드
 
 function replyupdate(rno ,bno){ // 수정쓰기메소드
 	let updatecontent1= $("#updatecontent1").val();
-	alert(rno)
-	alert(bno)
-	alert(updatecontent1);
+	//alert(rno)
+	//alert(bno)
+	//alert(updatecontent1);
 	$.ajax({
 		url : "replyupdate" , 
 		data : { "rno" : rno ,"updatecontent1":updatecontent1,"bno":bno  } ,
@@ -130,4 +130,42 @@ function replyupdate(rno ,bno){ // 수정쓰기메소드
 		}
 	});
 }
+
+function rereplyupdate(rno,bno) {
+	let updatecontent2= $("#updatecontent2").val();
+	alert(rno)
+	alert(bno)
+	alert(updatecontent2);
+	$.ajax({
+		url : "rereplyupdate" , 
+		data : { "rno" : rno ,"updatecontent2":updatecontent2,"bno":bno } ,
+		success : function( result ){
+			if( result ==1 ){
+				alert("댓글 수정 되었습니다.");
+				 $("#rcontent").val(""); // 작성 input 공백으로 초기화 
+				 $("#replytable").load( location.href+" #replytable"); // 특정 태그 새로고침
+			}
+			else{ alert("수정 실패했습니다."); }
+		}
+	});
+	
+	
+}
+
+function reupdateview(rno,rcontent,bno){ // 댓글수정창 표시 메소드 
+	
+	// JS 작성 공간 에서는 HTML 작성 불가능 --> HTML 문자처리 
+		$("#"+rno).html(
+			'<div class="row">'+
+				'<div class="col-md-10">'+
+					'<textarea name="updatecontent2" id="updatecontent2" class="form-control" rows=3>'+rcontent+'</textarea>'+
+				'</div>'+
+				'<div class="col-md-2">'+
+					'<button class="form-control py-4 my-1" onclick="rereplyupdate('+rno+','+bno+')">수정 등록</button>'+
+				'</div>'+
+			'</div>'
+		);	
+}
+
+
 
