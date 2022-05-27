@@ -72,7 +72,9 @@
 				<li class="nav-item"> <a href="#"> 슈즈 </a> </li>
 				<li class="nav-item"> <a href="#"> 악세사리 </a> </li>
 				<li class="nav-item"> <a href="#"> BEST </a> </li>
-				<li class="nav-item"> <a href="/jspweb/chatting/chatting.jsp"> 채팅 </a> </li>
+				<li class="nav-item"> <a href="/jspweb/chatting/chatting.jsp"> 채팅(소켓) </a> </li>
+				<li class="nav-item"> <a href="/jspweb/chatting/chattingdb.jsp"> 채팅(db) </a> </li>
+				
 				<li class="nav-item"> <a href="/jspweb/game.jsp" style="color: #FFBB00;"> 모델처러입자 </a> </li>
 				<li class="nav-item"> <a href="#" style="color: #FF0000;"> 50% 할인 </a> </li>
 				<li class="nav-item"> 
