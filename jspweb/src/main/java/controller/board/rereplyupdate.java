@@ -39,6 +39,7 @@ public class rereplyupdate extends HttpServlet {
     	String mid = (String)request.getSession().getAttribute("login");
 		int mno = MemberDao.getmemberDao().getmno(mid);
     	Reply rereply = new Reply(rno,updatecontent2,null,0,bno,mno,null);
+    	
 		boolean result = BoardDao.getBoardDao().replyupdate(rereply);
 		System.out.println(rereply.toString());
     	

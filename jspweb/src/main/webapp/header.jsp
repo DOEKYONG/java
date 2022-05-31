@@ -72,6 +72,7 @@
 				<li class="nav-item"> <a href="#"> 슈즈 </a> </li>
 				<li class="nav-item"> <a href="#"> 악세사리 </a> </li>
 				<li class="nav-item"> <a href="#"> BEST </a> </li>
+				<li class="nav-item"> <a href="/jspweb/board/안산시약국.jsp"> 안산시약국 </a> </li>
 				<li class="nav-item"> <a href="/jspweb/chatting/chatting.jsp"> 채팅(소켓) </a> </li>
 				<li class="nav-item"> <a href="/jspweb/chatting/chattingdb.jsp"> 채팅(db) </a> </li>
 				

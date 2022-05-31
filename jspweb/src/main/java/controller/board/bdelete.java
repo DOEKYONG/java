@@ -32,7 +32,7 @@ public class bdelete extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-int bno =  Integer.parseInt( request.getParameter("bno") ) ;
+		int bno =  Integer.parseInt( request.getParameter("bno") ) ;
 		
 		// * DB 삭제 전에 파일명 가져오기
 		Board board = BoardDao.getBoardDao().getboard(bno);
